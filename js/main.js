@@ -144,9 +144,6 @@ function applySelectedColors() {
     // カスタムプロパティを設定
     document.documentElement.style.setProperty(propertyName, value);
   });
-
-  // カラープレビューを更新
-  document.getElementById('colorPreview').style.backgroundColor = document.getElementById('bgColor').value;
 }
 
 const colorMap = {
