@@ -290,7 +290,8 @@ function setupColorPicker() {
       div.className = 'color-cell';
       const color = `var(--md-sys-color-${hue.toLowerCase().replace(' ', '-')}-${value})`;
       div.style.backgroundColor = color;
-      div.textContent = `${value}`;
+      div.textContent = value;
+      div.title = `${hue}-${value}`;
       div.addEventListener('click', () => {
         // 以前の選択を解除
         grid.querySelectorAll('.color-cell').forEach(cell => {
