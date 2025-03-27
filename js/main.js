@@ -83,6 +83,24 @@ const themeDefaultUrls = {
   'Char': 'https://twitpane.com/d/?theme=Char&bg=202020&mentionbg=202020&rtbg=202020&mymsgbg=1a237e&otmsgbg=263238&grad=-10&title=a0a0a0&date=a0a0a0&body=ffffff&mention=ff4444&mytweet=ff4444&read=a0a0a0&url=f2aab2&tab=771818&actionbar=ff4444&statusbar=ff4444&cw=ceb95f&more=646869',
 };
 
+const colorMap = {
+  'bg': 'bgColor',
+  'mentionbg': 'mentionBgColor',
+  'rtbg': 'rtBgColor',
+  'title': 'titleColor',
+  'date': 'dateColor',
+  'body': 'bodyColor',
+  'mention': 'mentionColor',
+  'mytweet': 'myTweetColor',
+  'read': 'readColor',
+  'url': 'urlColor',
+  'cw': 'cwColor',
+  'more': 'moreColor',
+  'statusbar': 'statusBarColor',
+  'actionbar': 'actionBarColor',
+  'tab': 'tabColor'
+};
+
 // HTMLを生成する関数
 function generateTimelineHTML(posts) {
   return posts.map(post => {
@@ -149,25 +167,6 @@ function applySelectedColors() {
     document.documentElement.style.setProperty(propertyName, value);
   });
 }
-
-const colorMap = {
-  'bg': 'bgColor',
-  'mentionbg': 'mentionBgColor',
-  'rtbg': 'rtBgColor',
-  'title': 'titleColor',
-  'date': 'dateColor',
-  'body': 'bodyColor',
-  'mention': 'mentionColor',
-  'mytweet': 'myTweetColor',
-  'read': 'readColor',
-  'url': 'urlColor',
-  'cw': 'cwColor',
-  'more': 'moreColor',
-  'statusbar': 'statusBarColor',
-  'actionbar': 'actionBarColor',
-  'tab': 'tabColor'
-};
-
 
 // URLからカラーパラメータを取得して適用する関数
 function applyColorsFromUrl() {
