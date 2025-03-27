@@ -35,3 +35,26 @@ http://twitpane.com/d/?theme=Black&bg=303030&mentionbg=343440&rtbg=343440&mymsgb
 
 - 項目IDは URL のパラメータに使われます
 - 「項目」は Web 上で選択項目の名前になります
+
+## テーマについて
+
+- テーマは配色の基準となるもので、一部の配色はテーマの種類により決まり変更できません。
+
+| theme (項目ID) | テーマ名 | テーマ系統
+| --- | --- | --- |
+| Light          | Light                 | L
+| Black          | Dark                  | D
+| Paris          | Paris(D)              | D
+| Green          | Green(D)              | D
+| Sakura         | Sakura(L)             | L
+| Char           | Char(D)               | D
+| ResearchGreen  | ResearchGreen(L)      | L
+| CoralPink      | CoralPink(L)          | L
+| CafeLatte      | CafeLatte(L)          | L
+| Mammoth        | Mammoth(L)            | L
+| Tai            | Tai(L)                | L
+
+| 項目 | テーマ系統=L | テーマ系統=D |
+| --- | --- | ---
+| タイトルバーの文字色 | #000000 | #ffffff
+| ステータスバーの文字色 | #000000 | #ffffff
