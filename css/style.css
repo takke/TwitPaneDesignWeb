@@ -13,6 +13,7 @@
   --more-color: #666666;
   --statusbar-color: #333333;
   --actionbar-color: #333333;
+  --actionbar-text-color: #000000;
   --tab-color: #1d9bf0;
   --text-color: #000000;
   --accent-color: #1d9bf0;
@@ -217,11 +218,11 @@
 .app-title {
   background-color: var(--actionbar-color);
   border-bottom: 1px solid var(--border-color);
-  color: white;
+  color: var(--actionbar-text-color);
 }
 
 .app-title .btn-link {
-  color: white;
+  color: var(--actionbar-text-color);
   text-decoration: none;
 }
 
