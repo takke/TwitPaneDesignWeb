@@ -1,7 +1,7 @@
 :root {
   --bg-color: #ffffff;
-  --mention-bg-color: #f8f8f8;
-  --rt-bg-color: #f8f8f8;
+  --mentionbg-color: #f8f8f8;
+  --rtbg-color: #f8f8f8;
   --title-color: #000000;
   --date-color: #666666;
   --body-color: #000000;
@@ -40,6 +40,10 @@
 
 .timeline-post:hover {
   background-color: rgba(0, 0, 0, 0.03);
+}
+
+.timeline-post.mention {
+  background-color: var(--mentionbg-color);
 }
 
 .user-info {
@@ -291,12 +295,8 @@
   color: #666;
 }
 
-.timeline-post.mention {
-  background-color: var(--mention-bg-color);
-}
-
 .timeline-post.rt {
-  background-color: var(--rt-bg-color);
+  background-color: var(--rtbg-color);
 }
 
 .timeline-post:last-child {

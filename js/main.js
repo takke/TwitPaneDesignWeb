@@ -106,7 +106,7 @@ function generateTimelineHTML(posts) {
     const sourceText = post.stars ? `★ ${post.stars}${post.source ? ` ${post.source}から` : ''}` : '';
 
     return `
-      <div class="timeline-post">
+      <div class="timeline-post${post.hasMention ? ' mention' : ''}${post.boost ? ' rt' : ''}">
         ${boostHeader}
         <div class="d-flex">
           <div class="me-3">
@@ -141,6 +141,9 @@ function applySelectedColors() {
 
     // カスタムプロパティ名を生成
     const propertyName = `--${colorId.replace(/([A-Z])/g, '-$1').toLowerCase()}-color`;
+
+    // デバッグログを追加
+    console.log(`Setting ${propertyName} to ${value} (from ${colorId})`);
 
     // カスタムプロパティを設定
     document.documentElement.style.setProperty(propertyName, value);
