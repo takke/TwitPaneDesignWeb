@@ -201,7 +201,7 @@
 }
 
 .boost-header {
-  padding: 4px 0;
+  padding: 4px 0 0 64px;
   color: #666;
   font-size: 0.9em;
   display: flex;

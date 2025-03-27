@@ -2,7 +2,7 @@
 const timelineData = [
   {
     id: 1,
-    avatar: "https://fakeimg.pl/48x48/ddd/fff?text=T",
+    avatar: "https://s3.fedibird.com/accounts/avatars/109/840/802/093/976/825/original/b0b40bdad26adb88.jpg",
     userName: "たけうちひろあき🐘",
     userId: "takke",
     timestamp: "2023/03/04 14:56",
@@ -12,7 +12,7 @@ const timelineData = [
   },
   {
     id: 2,
-    avatar: "https://fakeimg.pl/48x48/ddd/fff?text=Z",
+    avatar: "https://media.mstdn.jp/accounts/avatars/109/963/443/434/037/779/original/8462b24b5edd1464.png",
     userName: "そーぺん",
     userId: "zonepane",
     timestamp: "2023/03/04 14:52",
@@ -22,14 +22,14 @@ const timelineData = [
   },
   {
     id: 3,
-    avatar: "https://fakeimg.pl/48x48/ddd/fff?text=Z",
+    avatar: "https://media.mstdn.jp/accounts/avatars/109/963/443/434/037/779/original/8462b24b5edd1464.png",
     userName: "そーぺん",
     userId: "zonepane",
     timestamp: "2023/03/04 14:59",
     content: "画像を添付するとこのようになります。",
     source: "Web",
     stars: 2,
-    image: "https://fakeimg.pl/600x400/ddd/fff?text=Beach+Photo"
+    image: "https://media.mstdn.jp/media_attachments/files/109/963/480/573/110/072/small/ad9b7eb76627855c.jpeg"
   },
   {
     id: 4,
@@ -41,13 +41,13 @@ const timelineData = [
     source: "",
     stars: 1,
     images: [
-      "https://fakeimg.pl/300x300/ddd/fff?text=Badge",
-      "https://fakeimg.pl/300x300/ddd/fff?text=Acrylic"
+      "https://media.mstdn.jp/cache/media_attachments/files/109/963/493/832/514/129/small/ea2b1f37dd808f82.jpeg",
+      "https://media.mstdn.jp/cache/media_attachments/files/109/963/494/137/901/038/small/abaea065cc1e32bc.jpeg"
     ],
     boost: {
       user: "そーぺん",
       count: "3BT",
-      icon: "https://fakeimg.pl/16x16/ddd/fff?text=Z"
+      icon: "https://media.mstdn.jp/accounts/avatars/109/963/443/434/037/779/original/8462b24b5edd1464.png"
     }
   }
 ];
