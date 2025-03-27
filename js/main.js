@@ -143,7 +143,7 @@ function applySelectedColors() {
     const propertyName = `--${colorId.replace(/([A-Z])/g, '-$1').toLowerCase()}-color`;
 
     // デバッグログを追加
-    console.log(`Setting ${propertyName} to ${value} (from ${colorId})`);
+    //    console.log(`Setting ${propertyName} to ${value} (from ${colorId})`);
 
     // カスタムプロパティを設定
     document.documentElement.style.setProperty(propertyName, value);
