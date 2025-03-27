@@ -56,15 +56,15 @@ const timelineData = [
 const themeActionbarTextColors = {
   'Light': '000000',
   'Black': 'ffffff',
-  'Paris': 'ffffff',
-  'Green': 'ffffff',
-  'Sakura': '000000',
-  'Char': 'ffffff',
   'ResearchGreen': '000000',
+  'Sakura': '000000',
   'CoralPink': '000000',
   'CafeLatte': '000000',
   'Mammoth': '000000',
-  'Tai': '000000'
+  'Tai': '000000',
+  'Paris': 'ffffff',
+  'Green': 'ffffff',
+  'Char': 'ffffff',
 };
 
 // テーマのデフォルトURL
@@ -258,15 +258,14 @@ document.addEventListener('DOMContentLoaded', function () {
   // その他のテーマを追加
   [
     ['Black', 'Dark'],
+    ['ResearchGreen', 'ResearchGreen(L)'],
+    ['Sakura', 'Sakura(L)'],
+    ['Sakura', 'Sakura(L)'],
+    ['Tai', 'Tai(L)'],
     ['Paris', 'Paris(D)'],
     ['Green', 'Green(D)'],
-    ['Sakura', 'Sakura(L)'],
     ['Char', 'Char(D)'],
-    ['ResearchGreen', 'ResearchGreen(L)'],
-    ['CoralPink', 'CoralPink(L)'],
-    ['CafeLatte', 'CafeLatte(L)'],
-    ['Mammoth', 'Mammoth(L)'],
-    ['Tai', 'Tai(L)']
+    ['Sakura', 'Sakura(L)'],
   ].forEach(([value, text]) => {
     const option = document.createElement('option');
     option.value = value;
