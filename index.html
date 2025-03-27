@@ -14,104 +14,31 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body class="bg-light">
-  <div class="container-fluid">
+<body class="bg-light d-flex flex-column min-vh-100">
+  <div class="container-fluid flex-grow-1">
     <div class="row mt-3">
 
       <!-- 中央: タイムライン -->
       <div class="col-md-6">
         <div class="preview-container">
+          <!-- ステータスバー -->
+          <div class="status-bar">
+            <div class="status-bar-time">15:11</div>
+            <div class="status-bar-icons">
+              <i class="bi bi-battery"></i>
+              <i class="bi bi-wifi"></i>
+              <i class="bi bi-reception-4"></i>
+            </div>
+          </div>
+
           <!-- アプリヘッダー -->
           <div class="app-header">
             タイムライン
           </div>
 
-          <!-- タイムライン -->
+          <!-- タイムライン（JavaScriptで生成） -->
           <div class="timeline mb-4">
-            <div class="timeline-post">
-              <div class="d-flex">
-                <div class="me-3">
-                  <img src="https://fakeimg.pl/48x48/ddd/fff?text=T" class="avatar" alt="User Avatar" />
-                </div>
-                <div class="flex-grow-1">
-                  <div class="post-header">
-                    <div class="user-info">
-                      <a href="#" class="user-name">たけうちひろあき🐘</a>
-                      <a href="#" class="user-id">@takke</a>
-                    </div>
-                    <a href="#" class="post-time">2023/03/04 14:56</a>
-                  </div>
-                  <div class="post-text">@zonepane よろしくお願いします 😊 Web版のプレビューです！</div>
-                  <a href="#" class="web-source">★ 6 Webから</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="timeline-post">
-              <div class="d-flex">
-                <div class="me-3">
-                  <img src="https://fakeimg.pl/48x48/ddd/fff?text=Z" class="avatar" alt="User Avatar" />
-                </div>
-                <div class="flex-grow-1">
-                  <div class="post-header">
-                    <div class="user-info">
-                      <a href="#" class="user-name">そーぺん</a>
-                      <a href="#" class="user-id">@zonepane</a>
-                    </div>
-                    <a href="#" class="post-time">2023/03/04 14:52</a>
-                  </div>
-                  <div class="post-text">ZonePaneの公式アカウントです 😀</div>
-                  <a href="#" class="web-source">★ 2 Webから</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="timeline-post">
-              <div class="d-flex">
-                <div class="me-3">
-                  <img src="https://fakeimg.pl/48x48/ddd/fff?text=Z" class="avatar" alt="User Avatar" />
-                </div>
-                <div class="flex-grow-1">
-                  <div class="post-header">
-                    <div class="user-info">
-                      <a href="#" class="user-name">そーぺん</a>
-                      <a href="#" class="user-id">@zonepane</a>
-                    </div>
-                    <a href="#" class="post-time">2023/03/04 14:59</a>
-                  </div>
-                  <div class="post-text">画像を添付するとこのようになります。</div>
-                  <img src="https://fakeimg.pl/600x400/ddd/fff?text=Beach+Photo" class="post-image" alt="Beach" />
-                  <a href="#" class="web-source">★ 2 Webから</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="timeline-post">
-              <div class="boost-header">
-                <img src="https://fakeimg.pl/16x16/ddd/fff?text=Z" class="boost-icon" alt="Boost Icon" />
-                <span>そーぺんさんがブーストしました (3BT)</span>
-              </div>
-              <div class="d-flex">
-                <div class="me-3">
-                  <img src="https://fakeimg.pl/48x48/ddd/fff?text=T" class="avatar" alt="User Avatar" />
-                </div>
-                <div class="flex-grow-1">
-                  <div class="post-header">
-                    <div class="user-info">
-                      <a href="#" class="user-name">たけうち ちひろあき</a>
-                      <a href="#" class="user-id">@takke@fedibird.com</a>
-                    </div>
-                    <a href="#" class="post-time">2023/03/04 15:02</a>
-                  </div>
-                  <div class="post-text">缶バッジとアクキー 😽 #ZonePane</div>
-                  <div class="post-images">
-                    <img src="https://fakeimg.pl/300x300/ddd/fff?text=Badge" alt="Badge" />
-                    <img src="https://fakeimg.pl/300x300/ddd/fff?text=Acrylic" alt="Acrylic" />
-                  </div>
-                  <a href="#" class="web-source">★ 1</a>
-                </div>
-              </div>
-            </div>
+            <!-- ここにJavaScriptでタイムラインが生成されます -->
           </div>
         </div>
       </div>
@@ -151,6 +78,18 @@
       </div>
     </div>
   </div>
+
+  <!-- フッター -->
+  <footer class="footer mt-auto py-3 bg-dark text-light">
+    <div class="container text-center">
+      <div class="mb-2">
+        <a href="https://twitpane.com" class="text-light text-decoration-none" target="_blank" rel="noopener">
+          TwitPane
+        </a>
+      </div>
+      <small>&copy; 2025 Panecraft, Inc. All rights reserved.</small>
+    </div>
+  </footer>
 
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
