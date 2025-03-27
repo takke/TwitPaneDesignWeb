@@ -1,5 +1,19 @@
 :root {
   --bg-color: #ffffff;
+  --mention-bg-color: #f8f8f8;
+  --rt-bg-color: #f8f8f8;
+  --title-color: #000000;
+  --date-color: #666666;
+  --body-color: #000000;
+  --mention-color: #2b5c45;
+  --mytweet-color: #2b5c45;
+  --read-color: #666666;
+  --url-color: #1da1f2;
+  --cw-color: #ceb95f;
+  --more-color: #666666;
+  --statusbar-color: #333333;
+  --actionbar-color: #333333;
+  --tab-color: #1d9bf0;
   --text-color: #000000;
   --accent-color: #1d9bf0;
   --border-color: #dddddd;
@@ -34,7 +48,7 @@
 
 .user-name {
   font-weight: bold;
-  color: var(--text-color);
+  color: var(--title-color);
   text-decoration: none;
 }
 
@@ -42,8 +56,12 @@
   text-decoration: underline;
 }
 
+.user-name.read {
+  color: var(--read-color);
+}
+
 .user-id {
-  color: #666;
+  color: var(--url-color);
   text-decoration: none;
 }
 
@@ -54,7 +72,7 @@
 }
 
 .post-time {
-  color: #666;
+  color: var(--date-color);
   text-decoration: none;
   font-size: 0.9em;
 }
@@ -64,9 +82,21 @@
 }
 
 .post-text {
-  color: var(--text-color);
+  color: var(--body-color);
   margin-bottom: 8px;
   white-space: pre-wrap;
+}
+
+.post-text.mention {
+  color: var(--mention-color);
+}
+
+.post-text.mytweet {
+  color: var(--mytweet-color);
+}
+
+.post-text.read {
+  color: var(--read-color);
 }
 
 .action-button {
@@ -124,7 +154,7 @@
 }
 
 .status-bar {
-  background-color: #333;
+  background-color: var(--statusbar-color);
   padding: 2px 8px;
   display: flex;
   justify-content: space-between;
@@ -185,17 +215,18 @@
 }
 
 .app-title {
-  background-color: var(--bg-color);
+  background-color: var(--actionbar-color);
   border-bottom: 1px solid var(--border-color);
+  color: white;
 }
 
 .app-title .btn-link {
-  color: inherit;
+  color: white;
   text-decoration: none;
 }
 
 .app-tab {
-  background-color: var(--accent-color);
+  background-color: var(--tab-color);
   padding: 12px 16px;
   font-weight: bold;
   border-bottom: 1px solid var(--border-color);
@@ -238,4 +269,28 @@
   display: flex;
   gap: 16px;
   color: #666;
+}
+
+.timeline-post.mention {
+  background-color: var(--mention-bg-color);
+}
+
+.timeline-post.rt {
+  background-color: var(--rt-bg-color);
+}
+
+.timeline-post:last-child {
+  border-bottom: none;
+}
+
+.more-button {
+  color: var(--more-color);
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.cw-button {
+  color: var(--cw-color);
+  text-decoration: none;
+  font-size: 0.9em;
 }

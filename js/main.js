@@ -102,19 +102,40 @@ function generateTimelineHTML(posts) {
 
 // 配色を適用する関数
 function applySelectedColors() {
-  const bgColor = document.getElementById('bgColor').value;
-  const textColor = document.getElementById('textColor').value;
-  const accentColor = document.getElementById('accentColor').value;
-  const borderColor = document.getElementById('borderColor').value;
+  const colorInputs = document.querySelectorAll('input[type="color"]');
 
-  // CSSカスタムプロパティを更新
-  document.documentElement.style.setProperty('--bg-color', bgColor);
-  document.documentElement.style.setProperty('--text-color', textColor);
-  document.documentElement.style.setProperty('--accent-color', accentColor);
-  document.documentElement.style.setProperty('--border-color', borderColor);
+  colorInputs.forEach(input => {
+    const colorId = input.dataset.colorId;
+    const value = input.value;
+
+    // カスタムプロパティ名を生成
+    const propertyName = `--${colorId.replace(/([A-Z])/g, '-$1').toLowerCase()}-color`;
+
+    // カスタムプロパティを設定
+    document.documentElement.style.setProperty(propertyName, value);
+  });
 
   // カラープレビューを更新
-  document.getElementById('colorPreview').style.backgroundColor = bgColor;
+  document.getElementById('colorPreview').style.backgroundColor = document.getElementById('bgColor').value;
+}
+
+// URLからカラーパラメータを取得して適用する関数
+function applyColorsFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // 各カラー入力要素に対して処理
+  document.querySelectorAll('input[type="color"]').forEach(input => {
+    const colorId = input.dataset.colorId;
+    const colorValue = urlParams.get(colorId);
+
+    if (colorValue) {
+      // #を付加して正しい形式にする
+      input.value = colorValue.startsWith('#') ? colorValue : `#${colorValue}`;
+    }
+  });
+
+  // 色を適用
+  applySelectedColors();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -122,22 +143,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const timelineContainer = document.querySelector('.timeline');
   timelineContainer.innerHTML = generateTimelineHTML(timelineData);
 
-  // 配色カスタマイズ機能
-  const colorInputs = [
-    document.getElementById('bgColor'),
-    document.getElementById('textColor'),
-    document.getElementById('accentColor'),
-    document.getElementById('borderColor')
-  ];
-
   // 各カラー入力に即時反映のイベントリスナーを設定
-  colorInputs.forEach(input => {
+  document.querySelectorAll('input[type="color"]').forEach(input => {
     input.addEventListener('input', applySelectedColors);
   });
 
   // 配色を適用ボタンにもイベントリスナーを設定
   document.querySelector('.btn-primary').addEventListener('click', applySelectedColors);
 
-  // 初期配色を適用
-  applySelectedColors();
+  // URLからカラーを適用
+  applyColorsFromUrl();
 });
