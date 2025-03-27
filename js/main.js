@@ -122,20 +122,50 @@ function applySelectedColors() {
 // URLからカラーパラメータを取得して適用する関数
 function applyColorsFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
+  const colorMap = {
+    'bg': 'bgColor',
+    'mentionbg': 'mentionBgColor',
+    'rtbg': 'rtBgColor',
+    'title': 'titleColor',
+    'date': 'dateColor',
+    'body': 'bodyColor',
+    'mention': 'mentionColor',
+    'mytweet': 'myTweetColor',
+    'read': 'readColor',
+    'url': 'urlColor',
+    'cw': 'cwColor',
+    'more': 'moreColor',
+    'statusbar': 'statusBarColor',
+    'actionbar': 'actionBarColor',
+    'tab': 'tabColor'
+  };
 
-  // 各カラー入力要素に対して処理
-  document.querySelectorAll('input[type="color"]').forEach(input => {
-    const colorId = input.dataset.colorId;
-    const colorValue = urlParams.get(colorId);
-
+  // 各カラーパラメータを処理
+  Object.entries(colorMap).forEach(([paramName, inputId]) => {
+    const colorValue = urlParams.get(paramName);
     if (colorValue) {
-      // #を付加して正しい形式にする
-      input.value = colorValue.startsWith('#') ? colorValue : `#${colorValue}`;
+      const input = document.getElementById(inputId);
+      if (input) {
+        // 6桁のカラーコードに変換
+        const normalizedColor = colorValue.length === 6 ? colorValue : colorValue.padStart(6, '0');
+        input.value = `#${normalizedColor}`;
+      }
     }
   });
 
   // 色を適用
   applySelectedColors();
+}
+
+// 現在の色設定をURLパラメータとして取得
+function getColorParamsAsUrl() {
+  const params = new URLSearchParams();
+  document.querySelectorAll('input[type="color"]').forEach(input => {
+    const colorId = input.dataset.colorId;
+    const value = input.value.substring(1); // #を除去
+    params.append(colorId, value);
+  });
+  return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -145,7 +175,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 各カラー入力に即時反映のイベントリスナーを設定
   document.querySelectorAll('input[type="color"]').forEach(input => {
-    input.addEventListener('input', applySelectedColors);
+    input.addEventListener('input', () => {
+      applySelectedColors();
+      // URLを更新（ただしページ遷移はしない）
+      const newUrl = getColorParamsAsUrl();
+      window.history.replaceState({}, '', newUrl);
+    });
   });
 
   // 配色を適用ボタンにもイベントリスナーを設定
