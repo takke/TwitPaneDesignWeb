@@ -258,10 +258,110 @@ function applyThemeFromUrl(themeName) {
   applySelectedColors();
 }
 
+// カラーパレットの設定
+function setupColorPicker() {
+  const overlay = document.querySelector('.color-picker-overlay');
+  const grid = document.querySelector('.color-grid');
+  const cancelButton = document.querySelector('.color-picker-button.cancel');
+  let currentInput = null;
+
+  // 色相ごとに行を生成
+  const values = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+  const hues = ['Red', 'Pink', 'Purple', 'Deep Purple', 'Indigo', 'Blue', 'Light Blue', 'Cyan',
+    'Teal', 'Green', 'Light Green', 'Lime', 'Yellow', 'Amber', 'Orange', 'Deep Orange', 'Brown', 'Grey'];
+
+  hues.forEach(hue => {
+    const row = document.createElement('div');
+    row.className = 'color-row';
+
+    // 色相名のラベル
+    const label = document.createElement('div');
+    label.className = 'color-row-label';
+    label.textContent = hue;
+    row.appendChild(label);
+
+    // 色セルのコンテナ
+    const cells = document.createElement('div');
+    cells.className = 'color-cells';
+
+    // 濃度ごとにセルを生成
+    values.forEach(value => {
+      const div = document.createElement('div');
+      div.className = 'color-cell';
+      const color = `var(--md-sys-color-${hue.toLowerCase().replace(' ', '-')}-${value})`;
+      div.style.backgroundColor = color;
+      div.textContent = `${value}`;
+      div.addEventListener('click', () => {
+        // 以前の選択を解除
+        grid.querySelectorAll('.color-cell').forEach(cell => {
+          cell.style.border = '1px solid #ddd';
+        });
+        // 新しい選択を表示
+        //        div.style.border = '2px solid #007bff';
+
+        // 色を直接適用
+        if (currentInput) {
+          // コンピュートされたスタイルから実際の色を取得
+          const computedColor = getComputedStyle(div).backgroundColor;
+          currentInput.value = rgbToHex(computedColor);
+          currentInput.dispatchEvent(new Event('input'));
+
+          // オーバーレイを閉じる
+          overlay.style.display = 'none';
+          currentInput = null;
+        }
+      });
+      cells.appendChild(div);
+    });
+
+    row.appendChild(cells);
+    grid.appendChild(row);
+  });
+
+  // カラー入力フィールドのイベント設定
+  document.querySelectorAll('input[type="color"]').forEach(input => {
+    input.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentInput = input;
+      overlay.style.display = 'flex';
+    });
+  });
+
+  // キャンセルボタン
+  cancelButton.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    currentInput = null;
+  });
+
+  // オーバーレイのクリックでキャンセル
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.style.display = 'none';
+      currentInput = null;
+    }
+  });
+}
+
+// RGB形式の色をHEX形式に変換する関数
+function rgbToHex(rgb) {
+  // rgb(r, g, b) 形式の文字列から数値を抽出
+  const [r, g, b] = rgb.match(/\d+/g).map(Number);
+
+  // 16進数に変換して結合
+  const toHex = (n) => {
+    const hex = n.toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  };
+
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   // タイムラインの初期表示
   const timelineContainer = document.querySelector('.timeline');
   timelineContainer.innerHTML = generateTimelineHTML(timelineData);
+
+  setupColorPicker();
 
   // 各カラー入力に即時反映のイベントリスナーを設定
   document.querySelectorAll('input[type="color"]').forEach(input => {
