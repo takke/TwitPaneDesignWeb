@@ -614,3 +614,54 @@
   transform: scale(1.1);
   outline: 2px solid #333;
 } */
+
+/* カラー選択部分のスタイル */
+.form-control-color {
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  /* 重なり順を下げる */
+}
+
+.form-control-color::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 10%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+  border-left: 1px solid #ddd;
+}
+
+.color-input-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.custom-picker-overlay,
+.native-picker-overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+  /* 重なり順を上げる */
+}
+
+.custom-picker-overlay {
+  left: 0;
+  width: 90%;
+}
+
+.native-picker-overlay {
+  right: 0;
+  width: 10%;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.05));
+}
+
+.native-picker-overlay:hover {
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.15));
+}

@@ -320,11 +320,58 @@ function setupColorPicker() {
 
   // カラー入力フィールドのイベント設定
   document.querySelectorAll('input[type="color"]').forEach(input => {
-    input.addEventListener('click', (e) => {
+    // 各入力要素の前にラッパー要素を作成して配置する
+    const wrapper = document.createElement('div');
+    wrapper.className = 'color-input-wrapper';
+    wrapper.style.position = 'relative';
+    wrapper.style.width = '100%';
+    wrapper.style.height = '100%';
+
+    // 入力要素をラッパーで包む
+    input.parentNode.insertBefore(wrapper, input);
+    wrapper.appendChild(input);
+
+    // 透明なオーバーレイ要素を作成（カスタムパレット起動用）
+    const customPicker = document.createElement('div');
+    customPicker.className = 'custom-picker-overlay';
+    customPicker.style.position = 'absolute';
+    customPicker.style.top = '0';
+    customPicker.style.left = '0';
+    customPicker.style.width = '90%';
+    customPicker.style.height = '100%';
+    customPicker.style.cursor = 'pointer';
+
+    // 標準カラーピッカー起動用のオーバーレイ
+    const nativePicker = document.createElement('div');
+    nativePicker.className = 'native-picker-overlay';
+    nativePicker.style.position = 'absolute';
+    nativePicker.style.top = '0';
+    nativePicker.style.right = '0';
+    nativePicker.style.width = '10%';
+    nativePicker.style.height = '100%';
+    nativePicker.style.cursor = 'pointer';
+
+    wrapper.appendChild(customPicker);
+    wrapper.appendChild(nativePicker);
+
+    // カスタムパレット表示のイベント
+    customPicker.addEventListener('click', (e) => {
       e.preventDefault();
+      e.stopPropagation();
       currentInput = input;
       overlay.style.display = 'flex';
     });
+
+    // ネイティブのカラーピッカーを表示するイベント
+    nativePicker.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      // ここでネイティブのカラーピッカーを直接起動
+      input.click();
+    });
+
+    // 元のクリックイベントは削除
+    input.removeEventListener('click', () => { });
   });
 
   // キャンセルボタン
