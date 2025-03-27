@@ -149,6 +149,25 @@ function applySelectedColors() {
   document.getElementById('colorPreview').style.backgroundColor = document.getElementById('bgColor').value;
 }
 
+const colorMap = {
+  'bg': 'bgColor',
+  'mentionbg': 'mentionBgColor',
+  'rtbg': 'rtBgColor',
+  'title': 'titleColor',
+  'date': 'dateColor',
+  'body': 'bodyColor',
+  'mention': 'mentionColor',
+  'mytweet': 'myTweetColor',
+  'read': 'readColor',
+  'url': 'urlColor',
+  'cw': 'cwColor',
+  'more': 'moreColor',
+  'statusbar': 'statusBarColor',
+  'actionbar': 'actionBarColor',
+  'tab': 'tabColor'
+};
+
+
 // URLからカラーパラメータを取得して適用する関数
 function applyColorsFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -159,24 +178,6 @@ function applyColorsFromUrl() {
     document.getElementById('themeSelect').value = theme;
     return;
   }
-
-  const colorMap = {
-    'bg': 'bgColor',
-    'mentionbg': 'mentionBgColor',
-    'rtbg': 'rtBgColor',
-    'title': 'titleColor',
-    'date': 'dateColor',
-    'body': 'bodyColor',
-    'mention': 'mentionColor',
-    'mytweet': 'myTweetColor',
-    'read': 'readColor',
-    'url': 'urlColor',
-    'cw': 'cwColor',
-    'more': 'moreColor',
-    'statusbar': 'statusBarColor',
-    'actionbar': 'actionBarColor',
-    'tab': 'tabColor'
-  };
 
   // 各カラーパラメータを処理
   Object.entries(colorMap).forEach(([paramName, inputId]) => {
@@ -291,14 +292,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 確認ダイアログを表示
     if (confirm('テーマを変更すると現在の色設定が初期化されます。\nよろしいですか？')) {
-      applyThemeFromUrl(value);
-      e.target.dataset.prevValue = value;
-
-      // URLを更新
-      const params = new URLSearchParams();
-      params.append('theme', value);
-      const newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-      window.history.replaceState({}, '', newUrl);
+      // テーマのデフォルトURLを取得して遷移
+      const themeUrl = themeDefaultUrls[value];
+      if (themeUrl) {
+        window.location.href = themeUrl;
+      }
     } else {
       // キャンセルした場合は前の値に戻す
       e.target.value = prevValue;
