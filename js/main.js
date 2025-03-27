@@ -1,16 +1,6 @@
 // タイムラインのデータ
 const timelineData = [
   {
-    id: 1,
-    avatar: "https://s3.fedibird.com/accounts/avatars/109/840/802/093/976/825/original/b0b40bdad26adb88.jpg",
-    userName: "たけうちひろあき🐘",
-    userId: "takke",
-    timestamp: "2023/03/04 14:56",
-    content: "<span class='url'>@zonepane</span> よろしくお願いします😊 こちらは Web でプレビューしています！",
-    source: "Web",
-    stars: 6
-  },
-  {
     id: 2,
     avatar: "https://media.mstdn.jp/accounts/avatars/109/963/443/434/037/779/original/8462b24b5edd1464.png",
     userName: "そーぺん",
@@ -30,6 +20,17 @@ const timelineData = [
     source: "Web",
     stars: 2,
     image: "https://media.mstdn.jp/media_attachments/files/109/963/480/573/110/072/small/ad9b7eb76627855c.jpeg"
+  },
+  {
+    id: 1,
+    avatar: "https://s3.fedibird.com/accounts/avatars/109/840/802/093/976/825/original/b0b40bdad26adb88.jpg",
+    userName: "たけうちひろあき🐘",
+    userId: "takke",
+    timestamp: "2023/03/04 14:56",
+    content: "<span class='url'>@zonepane</span> よろしくお願いします😊 こちらは Web でプレビューしています！",
+    source: "Web",
+    stars: 6,
+    hasMention: true
   },
   {
     id: 4,
@@ -69,17 +70,17 @@ const themeActionbarTextColors = {
 
 // テーマのデフォルトURL
 const themeDefaultUrls = {
-  'Light': 'https://twitpane.com/d/?theme=Light&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
+  'Light': 'https://twitpane.com/d/?theme=Light&bg=fcfcfc&mentionbg=f8f0f0&rtbg=f0f0ff&mymsgbg=f0f0ff&otmsgbg=f8f0f0&title=000000&date=888888&body=000000&mention=009944&mytweet=009944&read=505050&url=2477b3&tab=33b5e5&actionbar=e6e6e6&statusbar=333333&cw=ffe164&more=8f9193',
   'Black': 'https://twitpane.com/d/?theme=Black&bg=303030&mentionbg=343440&rtbg=343440&mymsgbg=1a237e&otmsgbg=263238&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=33b5e5&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
-  'ResearchGreen': 'https://twitpane.com/d/?theme=ResearchGreen&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
-  'Sakura': 'https://twitpane.com/d/?theme=Sakura&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666869',
-  'CoralPink': 'https://twitpane.com/d/?theme=CoralPink&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
-  'CafeLatte': 'https://twitpane.com/d/?theme=CafeLatte&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
-  'Mammoth': 'https://twitpane.com/d/?theme=Mammoth&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
-  'Tai': 'https://twitpane.com/d/?theme=Tai&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
-  'Paris': 'https://twitpane.com/d/?theme=Paris&bg=303030&mentionbg=343440&rtbg=343440&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=8e24aa&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
-  'Green': 'https://twitpane.com/d/?theme=Green&bg=303030&mentionbg=343440&rtbg=343440&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=8e24aa&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
-  'Char': 'https://twitpane.com/d/?theme=Char&bg=303030&mentionbg=343440&rtbg=343440&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=8e24aa&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
+  'ResearchGreen': 'https://twitpane.com/d/?theme=ResearchGreen&bg=fcfcfc&mentionbg=e4f1e3&rtbg=e0e0e0&mymsgbg=f0f0ff&otmsgbg=f8f0f0&title=000000&date=5b5b5b&body=000000&mention=009944&mytweet=009944&read=000000&url=1478ff&tab=4da166&actionbar=83c095&statusbar=333333&cw=ffe164&more=8f9193',
+  'Sakura': 'https://twitpane.com/d/?theme=Sakura&bg=fff0f7&mentionbg=fff8f8&rtbg=f0f0ff&mymsgbg=f0f0ff&otmsgbg=f8f0f0&title=66665e&date=9ca274&body=944855&mention=f27318&mytweet=f27318&read=9ca274&url=2477b3&tab=e5a0bc&actionbar=ffd4d9&statusbar=ffd4d9&cw=ffe164&more=8f9193',
+  'CoralPink': 'https://twitpane.com/d/?theme=CoralPink&bg=fcfcfc&mentionbg=f8f0f0&rtbg=e0e0e0&mymsgbg=f0f0ff&otmsgbg=f8f0f0&title=000000&date=5b5b5b&body=000000&mention=009944&mytweet=009944&read=000000&url=1478ff&tab=ff9595&actionbar=ffb2b2&statusbar=333333&cw=ffe164&more=8f9193',
+  'CafeLatte': 'https://twitpane.com/d/?theme=CafeLatte&bg=fcfcfc&mentionbg=f8f0f0&rtbg=e0e0e0&mymsgbg=f0f0ff&otmsgbg=f8f0f0&title=000000&date=5b5b5b&body=000000&mention=009944&mytweet=009944&read=000000&url=1478ff&tab=a4816e&actionbar=d0b1a2&statusbar=333333&cw=ffe164&more=8f9193',
+  'Mammoth': 'https://twitpane.com/d/?theme=Mammoth&bg=e9dddf&mentionbg=f8f0f0&rtbg=e0e0e0&mymsgbg=f0f0ff&otmsgbg=f8f0f0&title=000000&date=585858&body=000000&mention=009944&mytweet=009944&read=000000&url=1478ff&tab=655454&actionbar=b5a0a0&statusbar=333333&cw=ffe164&more=8f9193',
+  'Tai': 'https://twitpane.com/d/?theme=Tai&bg=f0f0f0&mentionbg=f8f0f0&rtbg=e0e0e0&mymsgbg=f0f0ff&otmsgbg=f8f0f0&title=000000&date=585858&body=000000&mention=009944&mytweet=009944&read=000000&url=1478ff&tab=655454&actionbar=b5a0a0&statusbar=333333&cw=ffe164&more=8f9193',
+  'Paris': 'https://twitpane.com/d/?theme=Paris&bg=303030&mentionbg=343440&rtbg=343440&mymsgbg=1a237e&otmsgbg=263238&grad=-10&title=decfa6&date=14a589&body=decfa6&mention=f94b06&mytweet=f94b06&read=baae8c&url=14a589&tab=1f446a&actionbar=1f446a&statusbar=1f446a&cw=ceb95f&more=646869',
+  'Green': 'https://twitpane.com/d/?theme=Green&bg=263838&mentionbg=263838&rtbg=263838&mymsgbg=1a237e&otmsgbg=263238&grad=-10&title=177975&date=b9b9b9&body=dfdfdf&mention=7bb026&mytweet=7bb026&read=e3e3e3&url=419190&tab=1c908b&actionbar=1c908b&statusbar=1c908b&cw=ceb95f&more=646869',
+  'Char': 'https://twitpane.com/d/?theme=Char&bg=202020&mentionbg=202020&rtbg=202020&mymsgbg=1a237e&otmsgbg=263238&grad=-10&title=a0a0a0&date=a0a0a0&body=ffffff&mention=ff4444&mytweet=ff4444&read=a0a0a0&url=f2aab2&tab=771818&actionbar=ff4444&statusbar=ff4444&cw=ceb95f&more=646869',
 };
 
 // HTMLを生成する関数
@@ -173,7 +174,6 @@ function applyColorsFromUrl() {
   const theme = urlParams.get('theme');
   if (theme) {
     document.getElementById('themeSelect').value = theme;
-    return;
   }
 
   // 各カラーパラメータを処理
@@ -260,12 +260,13 @@ document.addEventListener('DOMContentLoaded', function () {
     ['Black', 'Dark'],
     ['ResearchGreen', 'ResearchGreen(L)'],
     ['Sakura', 'Sakura(L)'],
-    ['Sakura', 'Sakura(L)'],
+    ['CoralPink', 'CoralPink(L)'],
+    ['CafeLatte', 'CafeLatte(L)'],
+    ['Mammoth', 'Mammoth(L)'],
     ['Tai', 'Tai(L)'],
     ['Paris', 'Paris(D)'],
     ['Green', 'Green(D)'],
     ['Char', 'Char(D)'],
-    ['Sakura', 'Sakura(L)'],
   ].forEach(([value, text]) => {
     const option = document.createElement('option');
     option.value = value;
@@ -300,14 +301,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
   const theme = urlParams.get('theme') || 'Light';
 
+  console.log("theme", theme);
+
   // テーマセレクトの初期値を設定
   themeSelect.value = theme;
   themeSelect.dataset.prevValue = theme;
 
   // テーマのデフォルトURLから色を適用
+  console.log("themeDefaultUrls[theme]", themeDefaultUrls[theme]);
   if (themeDefaultUrls[theme]) {
     applyThemeFromUrl(theme);
-  } else {
-    applyColorsFromUrl();
   }
+  applyColorsFromUrl();
 });
