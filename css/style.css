@@ -188,14 +188,6 @@
   gap: 4px;
 }
 
-.network-status {
-  background: #666;
-  color: white;
-  font-size: 0.8rem;
-  padding: 2px 8px;
-  text-align: center;
-}
-
 .web-source {
   color: #666;
   text-decoration: none;

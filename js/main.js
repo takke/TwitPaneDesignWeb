@@ -1,14 +1,55 @@
 // タイムラインのデータ
 const timelineData = [
   {
+    id: 10,
+    avatar: "https://s3.fedibird.com/accounts/avatars/109/840/802/093/976/825/original/b0b40bdad26adb88.jpg",
+    userName: "たけうちひろあき🐘",
+    userId: "takke",
+    timestamp: "2023/03/04 14:56",
+    content: "自分の投稿です",
+    source: "Web",
+    stars: 12,
+    myTweet: true
+  },
+  {
     id: 2,
     avatar: "https://media.mstdn.jp/accounts/avatars/109/963/443/434/037/779/original/8462b24b5edd1464.png",
     userName: "そーぺん",
     userId: "zonepane",
     timestamp: "2023/03/04 14:52",
-    content: "ZonePaneの公式アカウントです 😀",
+    content: "他人の投稿です😀 本文(未読)が使われます。",
     source: "Web",
     stars: 2
+  },
+  {
+    id: 1,
+    avatar: "https://s3.fedibird.com/accounts/avatars/109/840/802/093/976/825/original/b0b40bdad26adb88.jpg",
+    userName: "たけうちひろあき🐘",
+    userId: "takke",
+    timestamp: "2023/03/04 14:56",
+    content: "<span class='url'>@zonepane</span> 自分宛の返信です",
+    source: "Web",
+    stars: 6,
+    hasMention: true
+  },
+  {
+    id: 4,
+    avatar: "https://fakeimg.pl/48x48/ddd/fff?text=T",
+    userName: "たっけ",
+    userId: "takke@fedibird.com",
+    timestamp: "2023/03/04 15:02",
+    content: "ハッシュタグを含む投稿です。ブーストされています。 <span class='hashtag'>#ZonePane</span>",
+    source: "",
+    stars: 1,
+    images: [
+      "https://media.mstdn.jp/cache/media_attachments/files/109/963/493/832/514/129/small/ea2b1f37dd808f82.jpeg",
+      "https://media.mstdn.jp/cache/media_attachments/files/109/963/494/137/901/038/small/abaea065cc1e32bc.jpeg"
+    ],
+    boost: {
+      user: "そーぺん",
+      count: "3BT",
+      icon: "https://media.mstdn.jp/accounts/avatars/109/963/443/434/037/779/original/8462b24b5edd1464.png"
+    }
   },
   {
     id: 3,
@@ -22,35 +63,16 @@ const timelineData = [
     image: "https://media.mstdn.jp/media_attachments/files/109/963/480/573/110/072/small/ad9b7eb76627855c.jpeg"
   },
   {
-    id: 1,
-    avatar: "https://s3.fedibird.com/accounts/avatars/109/840/802/093/976/825/original/b0b40bdad26adb88.jpg",
-    userName: "たけうちひろあき🐘",
-    userId: "takke",
-    timestamp: "2023/03/04 14:56",
-    content: "<span class='url'>@zonepane</span> よろしくお願いします😊 こちらは Web でプレビューしています！",
-    source: "Web",
-    stars: 6,
-    hasMention: true
+    id: 8,
+    avatar: "https://media.mstdn.jp/accounts/avatars/109/963/443/434/037/779/original/8462b24b5edd1464.png",
+    userName: "そーぺん",
+    userId: "zonepane",
+    timestamp: "2023/03/04 14:52",
+    content: "既読の投稿です",
+    source: "ZonePane",
+    stars: 2,
+    isRead: true
   },
-  {
-    id: 4,
-    avatar: "https://fakeimg.pl/48x48/ddd/fff?text=T",
-    userName: "たっけ",
-    userId: "takke@fedibird.com",
-    timestamp: "2023/03/04 15:02",
-    content: "缶バッジとアクキー 😽 <span class='hashtag'>#ZonePane</span>",
-    source: "",
-    stars: 1,
-    images: [
-      "https://media.mstdn.jp/cache/media_attachments/files/109/963/493/832/514/129/small/ea2b1f37dd808f82.jpeg",
-      "https://media.mstdn.jp/cache/media_attachments/files/109/963/494/137/901/038/small/abaea065cc1e32bc.jpeg"
-    ],
-    boost: {
-      user: "そーぺん",
-      count: "3BT",
-      icon: "https://media.mstdn.jp/accounts/avatars/109/963/443/434/037/779/original/8462b24b5edd1464.png"
-    }
-  }
 ];
 
 // テーマごとのアクションバーテキストカラー
@@ -138,7 +160,7 @@ function generateTimelineHTML(posts) {
               </div>
               <a href="#" class="post-time">${post.timestamp}</a>
             </div>
-            <div class="post-text">${post.content}</div>
+            <div class="post-text${post.myTweet ? ' mytweet' : ''}${post.hasMention ? ' mention' : ''}${post.isRead ? ' read' : ''}">${post.content}</div>
             ${singleImage}
             ${images}
             ${sourceText ? `<a href="#" class="web-source">${sourceText}</a>` : ''}
