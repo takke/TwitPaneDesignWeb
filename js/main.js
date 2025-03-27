@@ -71,15 +71,15 @@ const themeActionbarTextColors = {
 const themeDefaultUrls = {
   'Light': 'https://twitpane.com/d/?theme=Light&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
   'Black': 'https://twitpane.com/d/?theme=Black&bg=303030&mentionbg=343440&rtbg=343440&mymsgbg=1a237e&otmsgbg=263238&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=33b5e5&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
-  'Paris': 'https://twitpane.com/d/?theme=Paris&bg=303030&mentionbg=343440&rtbg=343440&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=8e24aa&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
-  'Green': 'https://twitpane.com/d/?theme=Green&bg=303030&mentionbg=343440&rtbg=343440&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=8e24aa&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
-  'Sakura': 'https://twitpane.com/d/?theme=Sakura&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666869',
-  'Char': 'https://twitpane.com/d/?theme=Char&bg=303030&mentionbg=343440&rtbg=343440&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=8e24aa&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
   'ResearchGreen': 'https://twitpane.com/d/?theme=ResearchGreen&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
+  'Sakura': 'https://twitpane.com/d/?theme=Sakura&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666869',
   'CoralPink': 'https://twitpane.com/d/?theme=CoralPink&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
   'CafeLatte': 'https://twitpane.com/d/?theme=CafeLatte&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
   'Mammoth': 'https://twitpane.com/d/?theme=Mammoth&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
-  'Tai': 'https://twitpane.com/d/?theme=Tai&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666'
+  'Tai': 'https://twitpane.com/d/?theme=Tai&bg=ffffff&mentionbg=f8f8f8&rtbg=f8f8f8&title=000000&date=666666&body=000000&mention=2b5c45&mytweet=2b5c45&read=666666&url=1da1f2&tab=1d9bf0&actionbar=ffffff&statusbar=333333&cw=ceb95f&more=666666',
+  'Paris': 'https://twitpane.com/d/?theme=Paris&bg=303030&mentionbg=343440&rtbg=343440&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=8e24aa&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
+  'Green': 'https://twitpane.com/d/?theme=Green&bg=303030&mentionbg=343440&rtbg=343440&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=8e24aa&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
+  'Char': 'https://twitpane.com/d/?theme=Char&bg=303030&mentionbg=343440&rtbg=343440&title=ffffff&date=a0a0a0&body=ffffff&mention=9bc88c&mytweet=9bc88c&read=b0b0b0&url=4187aa&tab=8e24aa&actionbar=333333&statusbar=333333&cw=ceb95f&more=646869',
 };
 
 // HTMLを生成する関数
@@ -247,9 +247,6 @@ document.addEventListener('DOMContentLoaded', function () {
       window.history.replaceState({}, '', newUrl);
     });
   });
-
-  // 配色を適用ボタンにもイベントリスナーを設定
-  document.querySelector('.btn-primary').addEventListener('click', applySelectedColors);
 
   // テーマの選択肢を追加
   const themeSelect = document.getElementById('themeSelect');
