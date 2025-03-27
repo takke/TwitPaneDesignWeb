@@ -331,28 +331,49 @@ function setupColorPicker() {
     input.parentNode.insertBefore(wrapper, input);
     wrapper.appendChild(input);
 
-    // 透明なオーバーレイ要素を作成（カスタムパレット起動用）
-    const customPicker = document.createElement('div');
-    customPicker.className = 'custom-picker-overlay';
-    customPicker.style.position = 'absolute';
-    customPicker.style.top = '0';
-    customPicker.style.left = '0';
-    customPicker.style.width = '90%';
-    customPicker.style.height = '100%';
-    customPicker.style.cursor = 'pointer';
-
-    // 標準カラーピッカー起動用のオーバーレイ
+    // 左側オーバーレイ（標準カラーピッカー）
     const nativePicker = document.createElement('div');
     nativePicker.className = 'native-picker-overlay';
     nativePicker.style.position = 'absolute';
     nativePicker.style.top = '0';
-    nativePicker.style.right = '0';
+    nativePicker.style.left = '0';
     nativePicker.style.width = '10%';
     nativePicker.style.height = '100%';
     nativePicker.style.cursor = 'pointer';
+    nativePicker.title = '標準カラーピッカー';
 
-    wrapper.appendChild(customPicker);
+    // 中央オーバーレイ（カスタムパレット）
+    const customPicker = document.createElement('div');
+    customPicker.className = 'custom-picker-overlay';
+    customPicker.style.position = 'absolute';
+    customPicker.style.top = '0';
+    customPicker.style.left = '10%';
+    customPicker.style.width = '80%';
+    customPicker.style.height = '100%';
+    customPicker.style.cursor = 'pointer';
+    customPicker.title = 'Material カラーパレット';
+
+    // 右側オーバーレイ（テーマのデフォルト値に戻す）
+    const resetPicker = document.createElement('div');
+    resetPicker.className = 'reset-picker-overlay';
+    resetPicker.style.position = 'absolute';
+    resetPicker.style.top = '0';
+    resetPicker.style.right = '0';
+    resetPicker.style.width = '10%';
+    resetPicker.style.height = '100%';
+    resetPicker.style.cursor = 'pointer';
+    resetPicker.title = 'テーマのデフォルト値に戻す';
     wrapper.appendChild(nativePicker);
+    wrapper.appendChild(customPicker);
+    wrapper.appendChild(resetPicker);
+
+    // 標準カラーピッカーを表示するイベント
+    nativePicker.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      // ネイティブのカラーピッカーを直接起動
+      input.click();
+    });
 
     // カスタムパレット表示のイベント
     customPicker.addEventListener('click', (e) => {
@@ -362,12 +383,30 @@ function setupColorPicker() {
       overlay.style.display = 'flex';
     });
 
-    // ネイティブのカラーピッカーを表示するイベント
-    nativePicker.addEventListener('click', (e) => {
+    // テーマのデフォルト値に戻すイベント
+    resetPicker.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      // ここでネイティブのカラーピッカーを直接起動
-      input.click();
+
+      // 現在のテーマを取得
+      const currentTheme = document.getElementById('themeSelect').value;
+      const themeUrl = themeDefaultUrls[currentTheme];
+
+      if (!themeUrl) return;
+
+      // テーマのデフォルトURLからカラーコードを取得
+      const url = new URL(themeUrl);
+      const params = new URLSearchParams(url.search);
+
+      // このカラー入力に対応するパラメータ名を特定
+      const colorId = input.dataset.colorId;
+      const defaultColor = params.get(colorId);
+
+      if (defaultColor) {
+        const normalizedColor = defaultColor.length === 6 ? defaultColor : defaultColor.padStart(6, '0');
+        input.value = `#${normalizedColor}`;
+        input.dispatchEvent(new Event('input'));
+      }
     });
 
     // 元のクリックイベントは削除

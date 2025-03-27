@@ -635,6 +635,18 @@
   border-left: 1px solid #ddd;
 }
 
+.form-control-color::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10%;
+  height: 100%;
+  background: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+  border-right: 1px solid #ddd;
+}
+
 .color-input-wrapper {
   position: relative;
   width: 100%;
@@ -642,7 +654,8 @@
 }
 
 .custom-picker-overlay,
-.native-picker-overlay {
+.native-picker-overlay,
+.reset-picker-overlay {
   position: absolute;
   top: 0;
   height: 100%;
@@ -651,17 +664,27 @@
   /* 重なり順を上げる */
 }
 
-.custom-picker-overlay {
-  left: 0;
-  width: 90%;
-}
-
 .native-picker-overlay {
-  right: 0;
+  left: 0;
   width: 10%;
-  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.05));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.05), transparent);
 }
 
 .native-picker-overlay:hover {
-  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.15));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.15), transparent);
+}
+
+.custom-picker-overlay {
+  left: 10%;
+  width: 80%;
+}
+
+.reset-picker-overlay {
+  right: 0;
+  width: 10%;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.05), transparent);
+}
+
+.reset-picker-overlay:hover {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.15), transparent);
 }
