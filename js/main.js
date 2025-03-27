@@ -196,6 +196,10 @@ function applyColorsFromUrl() {
 // 現在の色設定をURLパラメータとして取得
 function getColorParamsAsUrl() {
   const params = new URLSearchParams();
+
+  // テーマを追加
+  params.append('theme', document.getElementById('themeSelect').value);
+
   document.querySelectorAll('input[type="color"]').forEach(input => {
     const colorId = input.dataset.colorId;
     const value = input.value.substring(1); // #を除去

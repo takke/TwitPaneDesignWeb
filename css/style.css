@@ -240,7 +240,6 @@
 
 .app-title {
   background-color: var(--actionbar-color);
-  border-bottom: 1px solid var(--border-color);
   color: var(--actionbar-text-color);
 }
 
@@ -251,16 +250,15 @@
 
 .app-tab {
   background-color: var(--tab-color);
-  padding: 12px 16px;
+  padding: 8px 16px;
   font-weight: bold;
-  border-bottom: 1px solid var(--border-color);
   color: white;
   text-align: center;
   font-size: 1.1rem;
 }
 
 .timeline-item {
-  padding: 12px 16px;
+  padding: 10px 16px;
   border-bottom: 1px solid #ddd;
 }
 
