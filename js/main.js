@@ -6,7 +6,7 @@ const timelineData = [
     userName: "たけうちひろあき🐘",
     userId: "takke",
     timestamp: "2023/03/04 14:56",
-    content: "@zonepane よろしくお願いします 😊 こちらは fedibird なので 🐘 のようなカスタム絵文字も使えています 🤔",
+    content: "@zonepane よろしくお願いします😊 こちらは Web でプレビューしています！",
     source: "Web",
     stars: 6
   },
@@ -100,63 +100,44 @@ function generateTimelineHTML(posts) {
   }).join('');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+// 配色を適用する関数
+function applySelectedColors() {
+  const bgColor = document.getElementById('bgColor').value;
+  const textColor = document.getElementById('textColor').value;
+  const accentColor = document.getElementById('accentColor').value;
+  const borderColor = document.getElementById('borderColor').value;
+
+  // CSSカスタムプロパティを更新
+  document.documentElement.style.setProperty('--bg-color', bgColor);
+  document.documentElement.style.setProperty('--text-color', textColor);
+  document.documentElement.style.setProperty('--accent-color', accentColor);
+  document.documentElement.style.setProperty('--border-color', borderColor);
+
+  // カラープレビューを更新
+  document.getElementById('colorPreview').style.backgroundColor = bgColor;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
   // タイムラインの初期表示
   const timelineContainer = document.querySelector('.timeline');
   timelineContainer.innerHTML = generateTimelineHTML(timelineData);
 
   // 配色カスタマイズ機能
-  const colorPreview = document.getElementById('colorPreview');
-  const bgColorInput = document.getElementById('bgColor');
-  const textColorInput = document.getElementById('textColor');
-  const accentColorInput = document.getElementById('accentColor');
-  const borderColorInput = document.getElementById('borderColor');
-  const applyButton = document.querySelector('.btn-primary');
+  const colorInputs = [
+    document.getElementById('bgColor'),
+    document.getElementById('textColor'),
+    document.getElementById('accentColor'),
+    document.getElementById('borderColor')
+  ];
 
-  // プレビューの更新
-  function updatePreview() {
-    colorPreview.style.backgroundColor = bgColorInput.value;
-    colorPreview.style.border = `1px solid ${borderColorInput.value}`;
-  }
-
-  // 配色の適用
-  function applyColors() {
-    const timeline = document.querySelector('.timeline');
-    const posts = document.querySelectorAll('.timeline-post');
-    const userNames = document.querySelectorAll('.user-name');
-    const postTexts = document.querySelectorAll('.post-text');
-
-    posts.forEach(post => {
-      post.style.backgroundColor = bgColorInput.value;
-    });
-
-    postTexts.forEach(text => {
-      text.style.color = textColorInput.value;
-    });
-    userNames.forEach(name => {
-      name.style.color = textColorInput.value;
-    });
-
-    document.querySelectorAll('.timeline-post::before').forEach(line => {
-      line.style.backgroundColor = accentColorInput.value;
-    });
-    document.querySelectorAll('.action-button:hover').forEach(button => {
-      button.style.color = accentColorInput.value;
-    });
-
-    timeline.style.borderColor = borderColorInput.value;
-    posts.forEach(post => {
-      post.style.borderBottomColor = borderColorInput.value;
-    });
-  }
-
-  // イベントリスナーの設定
-  [bgColorInput, textColorInput, accentColorInput, borderColorInput].forEach(input => {
-    input.addEventListener('input', updatePreview);
+  // 各カラー入力に即時反映のイベントリスナーを設定
+  colorInputs.forEach(input => {
+    input.addEventListener('input', applySelectedColors);
   });
 
-  applyButton.addEventListener('click', applyColors);
+  // 配色を適用ボタンにもイベントリスナーを設定
+  document.querySelector('.btn-primary').addEventListener('click', applySelectedColors);
 
-  // 初期プレビューの表示
-  updatePreview();
+  // 初期配色を適用
+  applySelectedColors();
 });
