@@ -62,8 +62,23 @@
 }
 
 .user-id {
+  color: var(--date-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.url {
+  color: var(--url-color);
+  text-decoration: underline;
+}
+
+.hashtag {
   color: var(--url-color);
   text-decoration: none;
+}
+
+.hashtag:hover {
+  text-decoration: underline;
 }
 
 .post-header {

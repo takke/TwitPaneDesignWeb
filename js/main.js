@@ -6,7 +6,7 @@ const timelineData = [
     userName: "たけうちひろあき🐘",
     userId: "takke",
     timestamp: "2023/03/04 14:56",
-    content: "@zonepane よろしくお願いします😊 こちらは Web でプレビューしています！",
+    content: "<span class='url'>@zonepane</span> よろしくお願いします😊 こちらは Web でプレビューしています！",
     source: "Web",
     stars: 6
   },
@@ -34,10 +34,10 @@ const timelineData = [
   {
     id: 4,
     avatar: "https://fakeimg.pl/48x48/ddd/fff?text=T",
-    userName: "たけうち ちひろあき",
+    userName: "たっけ",
     userId: "takke@fedibird.com",
     timestamp: "2023/03/04 15:02",
-    content: "缶バッジとアクキー 😽 #ZonePane",
+    content: "缶バッジとアクキー 😽 <span class='hashtag'>#ZonePane</span>",
     source: "",
     stars: 1,
     images: [
