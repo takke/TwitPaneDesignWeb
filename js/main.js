@@ -268,7 +268,8 @@ function setupColorPicker() {
   // 色相ごとに行を生成
   const values = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, "A100", "A200", "A400", "A700"];
   const hues = ['Red', 'Pink', 'Purple', 'Deep Purple', 'Indigo', 'Blue', 'Light Blue', 'Cyan',
-    'Teal', 'Green', 'Light Green', 'Lime', 'Yellow', 'Amber', 'Orange', 'Deep Orange', 'Brown', 'Grey', 'Blue Grey'];
+    'Teal', 'Green', 'Light Green', 'Lime', 'Yellow', 'Amber', 'Orange', 'Deep Orange', 'Brown', 'Grey', 'Blue Grey',
+    'Black and White'];
 
   hues.forEach(hue => {
     const row = document.createElement('div');
@@ -291,7 +292,19 @@ function setupColorPicker() {
       if (hue === "Brown" || hue === "Grey" || hue === "Blue Grey") {
         if (value === "A100" || value === "A200" || value === "A400" || value === "A700") {
           const emptyCell = document.createElement('div');
-          emptyCell.className = 'color-cell';
+          emptyCell.className = 'color-cell empty';
+          emptyCell.textContent = '';
+          emptyCell.title = `${hue}-${value}`;
+          cells.appendChild(emptyCell);
+          return;
+        }
+      }
+
+      // Black and White は白と黒のみを表示
+      if (hue === "Black and White") {
+        if (value !== 50 && value !== 100) {
+          const emptyCell = document.createElement('div');
+          emptyCell.className = 'color-cell empty';
           emptyCell.textContent = '';
           emptyCell.title = `${hue}-${value}`;
           cells.appendChild(emptyCell);
@@ -301,15 +314,23 @@ function setupColorPicker() {
 
       const div = document.createElement('div');
       div.className = 'color-cell';
-      const color = `var(--md-sys-color-${hue.toLowerCase().replace(' ', '-')}-${value})`;
+
+      let color;
+      if (hue === "Black and White") {
+        if (value === 50) {
+          color = `var(--md-sys-color-white)`;
+        } else if (value === 100) {
+          color = `var(--md-sys-color-black)`;
+        }
+      } else {
+        // Black and White 以外はカラーを文字列表記
+        color = `var(--md-sys-color-${hue.toLowerCase().replace(' ', '-')}-${value})`;
+        div.textContent = value;
+        div.title = `${hue}-${value}`;
+      }
+
       div.style.backgroundColor = color;
-      div.textContent = value;
-      div.title = `${hue}-${value}`;
       div.addEventListener('click', () => {
-        // 以前の選択を解除
-        grid.querySelectorAll('.color-cell').forEach(cell => {
-          cell.style.border = '1px solid #ddd';
-        });
 
         // 色を直接適用
         if (currentInput) {

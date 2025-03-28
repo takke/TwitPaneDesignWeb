@@ -292,8 +292,8 @@
   --md-sys-color-blue-grey-700: #455A64;
   --md-sys-color-blue-grey-800: #37474F;
   --md-sys-color-blue-grey-900: #263238;
-  --md-sys-color-black-0: #000000;
-  --md-sys-color-white-0: #FFFFFF;
+  --md-sys-color-black: #000000;
+  --md-sys-color-white: #FFFFFF;
 
 }
 
@@ -602,7 +602,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 90vw;
   max-width: 800px;
-  max-height: 80vh;
+  max-height: 85vh;
   overflow-y: auto;
 }
 
@@ -642,6 +642,11 @@
   text-align: center;
   border: 1px solid #ddd;
   transition: transform 0.1s;
+}
+
+.color-cell.empty {
+  background-color: #fff;
+  border: 1px solid #fff;
 }
 
 .color-cell:hover {
