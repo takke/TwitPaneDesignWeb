@@ -30,6 +30,10 @@
   --md-sys-color-red-700: #D32F2F;
   --md-sys-color-red-800: #C62828;
   --md-sys-color-red-900: #B71C1C;
+  --md-sys-color-red-A100: #FF8A80;
+  --md-sys-color-red-A200: #FF5252;
+  --md-sys-color-red-A400: #FF1744;
+  --md-sys-color-red-A700: #D50000;
 
   --md-sys-color-pink-50: #FCE4EC;
   --md-sys-color-pink-100: #F8BBD0;
@@ -41,6 +45,10 @@
   --md-sys-color-pink-700: #C2185B;
   --md-sys-color-pink-800: #AD1457;
   --md-sys-color-pink-900: #880E4F;
+  --md-sys-color-pink-A100: #FF80AB;
+  --md-sys-color-pink-A200: #FF4081;
+  --md-sys-color-pink-A400: #F50057;
+  --md-sys-color-pink-A700: #C51162;
 
   --md-sys-color-purple-50: #F3E5F5;
   --md-sys-color-purple-100: #E1BEE7;
@@ -52,6 +60,10 @@
   --md-sys-color-purple-700: #7B1FA2;
   --md-sys-color-purple-800: #6A1B9A;
   --md-sys-color-purple-900: #4A148C;
+  --md-sys-color-purple-A100: #EA80FC;
+  --md-sys-color-purple-A200: #E040FB;
+  --md-sys-color-purple-A400: #D500F9;
+  --md-sys-color-purple-A700: #AA00FF;
 
   --md-sys-color-deep-purple-50: #EDE7F6;
   --md-sys-color-deep-purple-100: #D1C4E9;
@@ -63,6 +75,10 @@
   --md-sys-color-deep-purple-700: #512DA8;
   --md-sys-color-deep-purple-800: #4527A0;
   --md-sys-color-deep-purple-900: #311B92;
+  --md-sys-color-deep-purple-A100: #B388FF;
+  --md-sys-color-deep-purple-A200: #7C4DFF;
+  --md-sys-color-deep-purple-A400: #651FFF;
+  --md-sys-color-deep-purple-A700: #6200EA;
 
   --md-sys-color-indigo-50: #E8EAF6;
   --md-sys-color-indigo-100: #C5CAE9;
@@ -74,6 +90,10 @@
   --md-sys-color-indigo-700: #303F9F;
   --md-sys-color-indigo-800: #283593;
   --md-sys-color-indigo-900: #1A237E;
+  --md-sys-color-indigo-A100: #8C9EFF;
+  --md-sys-color-indigo-A200: #536DFF;
+  --md-sys-color-indigo-A400: #3D5AFE;
+  --md-sys-color-indigo-A700: #304FFE;
 
   --md-sys-color-blue-50: #E3F2FD;
   --md-sys-color-blue-100: #BBDEFB;
@@ -85,6 +105,10 @@
   --md-sys-color-blue-700: #1976D2;
   --md-sys-color-blue-800: #1565C0;
   --md-sys-color-blue-900: #0D47A1;
+  --md-sys-color-blue-A100: #82B1FF;
+  --md-sys-color-blue-A200: #448AFF;
+  --md-sys-color-blue-A400: #2979FF;
+  --md-sys-color-blue-A700: #2962FF;
 
   --md-sys-color-light-blue-50: #E1F5FE;
   --md-sys-color-light-blue-100: #B3E5FC;
@@ -96,6 +120,10 @@
   --md-sys-color-light-blue-700: #0288D1;
   --md-sys-color-light-blue-800: #0277BD;
   --md-sys-color-light-blue-900: #01579B;
+  --md-sys-color-light-blue-A100: #80D8FF;
+  --md-sys-color-light-blue-A200: #40C4FF;
+  --md-sys-color-light-blue-A400: #00B0FF;
+  --md-sys-color-light-blue-A700: #0091EA;
 
   --md-sys-color-cyan-50: #E0F7FA;
   --md-sys-color-cyan-100: #B2EBF2;
@@ -107,6 +135,10 @@
   --md-sys-color-cyan-700: #0097A7;
   --md-sys-color-cyan-800: #00838F;
   --md-sys-color-cyan-900: #006064;
+  --md-sys-color-cyan-A100: #84FFFF;
+  --md-sys-color-cyan-A200: #18FFFF;
+  --md-sys-color-cyan-A400: #00E5FF;
+  --md-sys-color-cyan-A700: #00B8D4;
 
   --md-sys-color-teal-50: #E0F2F1;
   --md-sys-color-teal-100: #B2DFDB;
@@ -118,6 +150,10 @@
   --md-sys-color-teal-700: #00796B;
   --md-sys-color-teal-800: #00695C;
   --md-sys-color-teal-900: #004D40;
+  --md-sys-color-teal-A100: #A7FFEB;
+  --md-sys-color-teal-A200: #64FFDA;
+  --md-sys-color-teal-A400: #00E5FF;
+  --md-sys-color-teal-A700: #00BFA5;
 
   --md-sys-color-green-50: #E8F5E9;
   --md-sys-color-green-100: #C8E6C9;
@@ -129,6 +165,10 @@
   --md-sys-color-green-700: #388E3C;
   --md-sys-color-green-800: #2E7D32;
   --md-sys-color-green-900: #1B5E20;
+  --md-sys-color-green-A100: #B9F6CA;
+  --md-sys-color-green-A200: #69F0AE;
+  --md-sys-color-green-A400: #00E676;
+  --md-sys-color-green-A700: #00C853;
 
   --md-sys-color-light-green-50: #F1F8E9;
   --md-sys-color-light-green-100: #DCEDC8;
@@ -140,6 +180,10 @@
   --md-sys-color-light-green-700: #689F38;
   --md-sys-color-light-green-800: #558B2F;
   --md-sys-color-light-green-900: #33691E;
+  --md-sys-color-light-green-A100: #CCFF90;
+  --md-sys-color-light-green-A200: #B2FF59;
+  --md-sys-color-light-green-A400: #82F93D;
+  --md-sys-color-light-green-A700: #64DD17;
 
   --md-sys-color-lime-50: #F9FBE7;
   --md-sys-color-lime-100: #F0F4C3;
@@ -151,6 +195,10 @@
   --md-sys-color-lime-700: #AFB42B;
   --md-sys-color-lime-800: #9E9D24;
   --md-sys-color-lime-900: #827717;
+  --md-sys-color-lime-A100: #F4FF81;
+  --md-sys-color-lime-A200: #EEFF41;
+  --md-sys-color-lime-A400: #C6FF00;
+  --md-sys-color-lime-A700: #AEEA00;
 
   --md-sys-color-yellow-50: #FFFDE7;
   --md-sys-color-yellow-100: #FFF9C4;
@@ -162,6 +210,10 @@
   --md-sys-color-yellow-700: #FBC02D;
   --md-sys-color-yellow-800: #F9A825;
   --md-sys-color-yellow-900: #F57F17;
+  --md-sys-color-yellow-A100: #FFFF8D;
+  --md-sys-color-yellow-A200: #FFFF00;
+  --md-sys-color-yellow-A400: #FFEA00;
+  --md-sys-color-yellow-A700: #FFD600;
 
   --md-sys-color-amber-50: #FFF8E1;
   --md-sys-color-amber-100: #FFECB3;
@@ -173,6 +225,10 @@
   --md-sys-color-amber-700: #FFA000;
   --md-sys-color-amber-800: #FF8F00;
   --md-sys-color-amber-900: #FF6F00;
+  --md-sys-color-amber-A100: #FFE57F;
+  --md-sys-color-amber-A200: #FFD740;
+  --md-sys-color-amber-A400: #FFC400;
+  --md-sys-color-amber-A700: #FFAB00;
 
   --md-sys-color-orange-50: #FFF3E0;
   --md-sys-color-orange-100: #FFE0B2;
@@ -184,6 +240,10 @@
   --md-sys-color-orange-700: #F57C00;
   --md-sys-color-orange-800: #EF6C00;
   --md-sys-color-orange-900: #E65100;
+  --md-sys-color-orange-A100: #FFD180;
+  --md-sys-color-orange-A200: #FFAB40;
+  --md-sys-color-orange-A400: #FF9100;
+  --md-sys-color-orange-A700: #FF6D00;
 
   --md-sys-color-deep-orange-50: #FBE9E7;
   --md-sys-color-deep-orange-100: #FFCCBC;
@@ -195,6 +255,10 @@
   --md-sys-color-deep-orange-700: #E64A19;
   --md-sys-color-deep-orange-800: #D84315;
   --md-sys-color-deep-orange-900: #BF360C;
+  --md-sys-color-deep-orange-A100: #FF9E80;
+  --md-sys-color-deep-orange-A200: #FF6E40;
+  --md-sys-color-deep-orange-A400: #FF3D00;
+  --md-sys-color-deep-orange-A700: #DD2C00;
 
   --md-sys-color-brown-50: #EFEBE9;
   --md-sys-color-brown-100: #D7CCC8;
@@ -217,6 +281,20 @@
   --md-sys-color-grey-700: #616161;
   --md-sys-color-grey-800: #424242;
   --md-sys-color-grey-900: #212121;
+
+  --md-sys-color-blue-grey-50: #ECEFF1;
+  --md-sys-color-blue-grey-100: #CFD8DC;
+  --md-sys-color-blue-grey-200: #B0BEC5;
+  --md-sys-color-blue-grey-300: #90A4AE;
+  --md-sys-color-blue-grey-400: #78909C;
+  --md-sys-color-blue-grey-500: #607D8B;
+  --md-sys-color-blue-grey-600: #546E7A;
+  --md-sys-color-blue-grey-700: #455A64;
+  --md-sys-color-blue-grey-800: #37474F;
+  --md-sys-color-blue-grey-900: #263238;
+  --md-sys-color-black-0: #000000;
+  --md-sys-color-white-0: #FFFFFF;
+
 }
 
 .timeline-post {
@@ -523,7 +601,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 90vw;
-  max-width: 600px;
+  max-width: 800px;
   max-height: 80vh;
   overflow-y: auto;
 }
@@ -593,27 +671,6 @@
   background: #007bff;
   color: white;
 }
-
-/* .palette {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-  gap: 8px;
-  max-width: 400px;
-  margin: 1rem 0;
-}
-
-.color-box {
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.color-box:hover {
-  transform: scale(1.1);
-  outline: 2px solid #333;
-} */
 
 /* カラー選択部分のスタイル */
 .form-control-color {

@@ -266,9 +266,9 @@ function setupColorPicker() {
   let currentInput = null;
 
   // 色相ごとに行を生成
-  const values = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+  const values = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, "A100", "A200", "A400", "A700"];
   const hues = ['Red', 'Pink', 'Purple', 'Deep Purple', 'Indigo', 'Blue', 'Light Blue', 'Cyan',
-    'Teal', 'Green', 'Light Green', 'Lime', 'Yellow', 'Amber', 'Orange', 'Deep Orange', 'Brown', 'Grey'];
+    'Teal', 'Green', 'Light Green', 'Lime', 'Yellow', 'Amber', 'Orange', 'Deep Orange', 'Brown', 'Grey', 'Blue Grey'];
 
   hues.forEach(hue => {
     const row = document.createElement('div');
@@ -286,6 +286,19 @@ function setupColorPicker() {
 
     // 濃度ごとにセルを生成
     values.forEach(value => {
+
+      // Brown, Grey, Blue Grey は A 系をスキップする(空のセルを追加する)
+      if (hue === "Brown" || hue === "Grey" || hue === "Blue Grey") {
+        if (value === "A100" || value === "A200" || value === "A400" || value === "A700") {
+          const emptyCell = document.createElement('div');
+          emptyCell.className = 'color-cell';
+          emptyCell.textContent = '';
+          emptyCell.title = `${hue}-${value}`;
+          cells.appendChild(emptyCell);
+          return;
+        }
+      }
+
       const div = document.createElement('div');
       div.className = 'color-cell';
       const color = `var(--md-sys-color-${hue.toLowerCase().replace(' ', '-')}-${value})`;
@@ -297,8 +310,6 @@ function setupColorPicker() {
         grid.querySelectorAll('.color-cell').forEach(cell => {
           cell.style.border = '1px solid #ddd';
         });
-        // 新しい選択を表示
-        //        div.style.border = '2px solid #007bff';
 
         // 色を直接適用
         if (currentInput) {
