@@ -528,12 +528,23 @@ function rgbToHex(rgb) {
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 
+let shareText = "";
+
+function updateShareText() {
+  shareText = `#TwitPane 配色デザイン\r\n${location.href}`;
+  document.getElementById('shareText').value = shareText;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   // タイムラインの初期表示
   const timelineContainer = document.querySelector('.timeline');
   timelineContainer.innerHTML = generateTimelineHTML(timelineData);
 
+  // カラーピッカー初期化
   setupColorPicker();
+
+  // シェアテキストを初期化
+  updateShareText()
 
   // 各カラー入力に即時反映のイベントリスナーを設定
   document.querySelectorAll('input[type="color"]').forEach(input => {
@@ -542,10 +553,15 @@ document.addEventListener('DOMContentLoaded', function () {
       // URLを更新（ただしページ遷移はしない）
       const newUrl = getColorParamsAsUrl();
       window.history.replaceState({}, '', newUrl);
+
+      // シェアテキストを更新
+      updateShareText()
     });
   });
 
+  //--------------------------------------------------
   // テーマの選択肢を追加
+  //--------------------------------------------------
   const themeSelect = document.getElementById('themeSelect');
   themeSelect.innerHTML = ''; // 既存のオプションをクリア
 
@@ -608,3 +624,36 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   applyColorsFromUrl();
 });
+
+// 共有関連
+
+function shareToX() {
+  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+  window.open(url, '_blank');
+}
+
+function shareToBluesky() {
+  const url = `https://bsky.app/intent/compose?text=${encodeURIComponent(shareText)}`;
+  window.open(url, '_blank');
+}
+
+function shareToMastodon(domain) {
+  const url = `https://${domain}/share?text=${encodeURIComponent(shareText)}`;
+  window.open(url, '_blank');
+}
+
+function shareToMisskey() {
+  const url = `https://misskey.io/share?text=${encodeURIComponent(shareText)}`;
+  window.open(url, '_blank');
+}
+
+function copyToClipboard() {
+  navigator.clipboard.writeText(shareText)
+    .then(() => {
+      document.getElementById('copyText').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('copyText').style.display = 'none';
+      }, 2000);
+    })
+    .catch(err => alert("コピーに失敗しました"));
+}

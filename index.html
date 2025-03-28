@@ -10,6 +10,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -191,12 +192,58 @@
             <h5 class="card-title mb-0">共有</h5>
           </div>
           <div class="card-body">
-            <div class="mb-2">
-              テーマを共有し、その投稿のメニュー(このデザインをインポートする)からこのデザイン設定をインポートできます。
+
+            <textarea id="shareText" class="mb-2" readonly>#TwitPane 配色デザイン
+</textarea>
+
+            <div class="share-buttons">
+              <!-- X -->
+              <button class="share-button" onclick="shareToX()" title="X (旧Twitter)" style="background-color: #000;">
+                <i class="fa-brands fa-x-twitter text-light"></i>
+              </button>
+
+              <!-- Bluesky -->
+              <button class="share-button" onclick="shareToBluesky()" title="Bluesky"
+                style="background-color: #1da1f2; ;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#fff">
+                  <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                  <path
+                    d="M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.5-8.9 130.5-14.1 149.2C478.2 298 412 314.6 353.1 304.5c102.9 17.5 129.1 75.5 72.5 133.5c-107.4 110.2-154.3-27.6-166.3-62.9l0 0c-1.7-4.9-2.6-7.8-3.3-7.8s-1.6 3-3.3 7.8l0 0c-12 35.3-59 173.1-166.3 62.9c-56.5-58-30.4-116 72.5-133.5C100 314.6 33.8 298 15.7 233.1C10.4 214.4 1.5 99.4 1.5 83.9c0-77.8 68.2-53.4 110.3-21.8z" />
+                </svg>
+              </button>
+
+              <!-- Mastodon (mstdn.jp) -->
+              <button class="share-button" onclick="shareToMastodon('mstdn.jp')" title="Mastodon">
+                <i class="fa-brands fa-mastodon"></i>
+              </button>
+
+              <!-- Fedibird (fedibird.com) -->
+              <button class="share-button" onclick="shareToMastodon('fedibird.com')" title="Fedibird">
+                <i class="fa-brands fa-mastodon"></i>
+              </button>
+
+
+              <!-- Misskey (misskey.io) -->
+              <button class="share-button" onclick="shareToMisskey()" title="Misskey (misskey.io)"
+                style="background-color: #86b300;">
+                <img src="https://fcdn.skeb.jp/assets/v1/shares/misskeyio_logo.svg" alt="Misskey" width="24"
+                  height="24" />
+              </button>
+
+              <!-- その他（コピー） -->
+              <button class="share-button" onclick="copyToClipboard()" title="内容をコピー">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+                </svg>
+              </button>
+              <span id="copyText" class="text-muted" style="display: none;">シェア内容をコピーしました！</span>
             </div>
-            <div class="mb-0">
-              このページのURLを投稿して TwitPane/ZonePane からインポートしてください。
+
+            <div class="mt-4">
+              TwitPane/ZonePane で投稿を開き、「このデザインをインポートする」からこの配色をインポートできます。
             </div>
+
           </div>
         </div>
       </div>
