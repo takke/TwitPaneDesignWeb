@@ -76,19 +76,52 @@ const timelineData = [
 ];
 
 // テーマごとのアクションバーテキストカラー
-const themeActionbarTextColors = {
-  'Light': '333',
-  'Black': 'eee',
-  'ResearchGreen': '333',
-  'Sakura': '333',
-  'CoralPink': '333',
-  'CafeLatte': '333',
-  'Mammoth': '333',
-  'Tai': '333',
-  'Paris': 'eee',
-  'Green': 'eee',
-  'Char': 'eee',
-};
+const themeProperty = {
+  'Light': {
+    'actionbar': '333',
+    'buttonClass': 'text-dark',
+  },
+  'Black': {
+    'actionbar': 'eee',
+    'buttonClass': 'text-light',
+  },
+  'ResearchGreen': {
+    'actionbar': '333',
+    'buttonClass': 'text-dark',
+  },
+  'Sakura': {
+    'actionbar': '333',
+    'buttonClass': 'text-dark',
+  },
+  'CoralPink': {
+    'actionbar': '333',
+    'buttonClass': 'text-dark',
+  },
+  'CafeLatte': {
+    'actionbar': '333',
+    'buttonClass': 'text-dark',
+  },
+  'Mammoth': {
+    'actionbar': '333',
+    'buttonClass': 'text-dark',
+  },
+  'Tai': {
+    'actionbar': '333',
+    'buttonClass': 'text-dark',
+  },
+  'Paris': {
+    'actionbar': 'eee',
+    'buttonClass': 'text-light',
+  },
+  'Green': {
+    'actionbar': 'eee',
+    'buttonClass': 'text-light',
+  },
+  'Char': {
+    'actionbar': 'eee',
+    'buttonClass': 'text-light',
+  },
+}
 
 // テーマのデフォルトURL
 const themeDefaultUrls = {
@@ -252,8 +285,15 @@ function applyThemeFromUrl(themeName) {
   });
 
   // アクションバーのテキストカラーを設定
-  const actionbarTextColor = themeActionbarTextColors[themeName] || '000000';
+  const actionbarTextColor = themeProperty[themeName].actionbar || '000000';
   document.documentElement.style.setProperty('--actionbar-text-color', `#${actionbarTextColor}`);
+
+  // アクションバーのアイコンにも適用
+  const actionbarButtonClass = themeProperty[themeName].buttonClass || 'text-light';
+  document.querySelectorAll('.app-title button i').forEach(button => {
+    button.classList.remove('text-light', 'text-dark');
+    button.classList.add(actionbarButtonClass);
+  });
 
   applySelectedColors();
 }
