@@ -751,3 +751,15 @@
 .reset-picker-overlay:hover {
   background: linear-gradient(to left, rgba(0, 0, 0, 0.15), transparent);
 }
+
+/* ヘッダースタイル */
+.lead {
+  color: var(--body-color);
+  opacity: 0.85;
+}
+
+@media (max-width: 576px) {
+  .lead {
+    font-size: 1rem;
+  }
+}
