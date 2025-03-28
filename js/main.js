@@ -278,7 +278,11 @@ function setupColorPicker() {
     // 色相名のラベル
     const label = document.createElement('div');
     label.className = 'color-row-label';
-    label.textContent = hue;
+    if (hue === "Black and White") {
+      label.textContent = "";
+    } else {
+      label.textContent = hue;
+    }
     row.appendChild(label);
 
     // 色セルのコンテナ
