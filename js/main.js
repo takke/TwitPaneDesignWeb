@@ -78,46 +78,57 @@ const timelineData = [
 // テーマごとのアクションバーテキストカラー
 const themeProperty = {
   'Light': {
+    'name': 'Light',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'Black': {
+    'name': 'Black',
     'actionbar': 'eee',
     'buttonClass': 'text-light',
   },
   'ResearchGreen': {
+    'name': 'ResearchGreen(L)',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'Sakura': {
+    'name': 'Sakura(L)',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'CoralPink': {
+    'name': 'CoralPink(L)',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'CafeLatte': {
+    'name': 'CafeLatte(L)',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'Mammoth': {
+    'name': 'Mammoth(L)',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'Tai': {
+    'name': 'Tai(L)',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'Paris': {
+    'name': 'Paris(D)',
     'actionbar': 'eee',
     'buttonClass': 'text-light',
   },
   'Green': {
+    'name': 'Green(D)',
     'actionbar': 'eee',
     'buttonClass': 'text-light',
   },
   'Char': {
+    'name': 'Char(D)',
     'actionbar': 'eee',
     'buttonClass': 'text-light',
   },
@@ -545,21 +556,15 @@ document.addEventListener('DOMContentLoaded', function () {
   themeSelect.appendChild(defaultOption);
 
   // その他のテーマを追加
-  [
-    ['Black', 'Dark'],
-    ['ResearchGreen', 'ResearchGreen(L)'],
-    ['Sakura', 'Sakura(L)'],
-    ['CoralPink', 'CoralPink(L)'],
-    ['CafeLatte', 'CafeLatte(L)'],
-    ['Mammoth', 'Mammoth(L)'],
-    ['Tai', 'Tai(L)'],
-    ['Paris', 'Paris(D)'],
-    ['Green', 'Green(D)'],
-    ['Char', 'Char(D)'],
-  ].forEach(([value, text]) => {
+  Object.entries(themeProperty).forEach(([key, value]) => {
+    if (key === 'Light') {
+      // skip
+      return;
+    }
+
     const option = document.createElement('option');
-    option.value = value;
-    option.textContent = text;
+    option.value = key;
+    option.textContent = value.name;
     themeSelect.appendChild(option);
   });
 
