@@ -75,7 +75,7 @@ const timelineData = [
   },
 ];
 
-// テーマごとのアクションバーテキストカラー
+// 各テーマの名前、アクションバーテキストカラー、ボタンのカラー(CSSクラス名)
 const themeProperty = {
   'Light': {
     'name': 'Light',
