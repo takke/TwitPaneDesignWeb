@@ -298,7 +298,6 @@ function setupColorPicker() {
           const emptyCell = document.createElement('div');
           emptyCell.className = 'color-cell empty';
           emptyCell.textContent = '';
-          emptyCell.title = `${hue}-${value}`;
           cells.appendChild(emptyCell);
           return;
         }
@@ -310,7 +309,6 @@ function setupColorPicker() {
           const emptyCell = document.createElement('div');
           emptyCell.className = 'color-cell empty';
           emptyCell.textContent = '';
-          emptyCell.title = `${hue}-${value}`;
           cells.appendChild(emptyCell);
           return;
         }
