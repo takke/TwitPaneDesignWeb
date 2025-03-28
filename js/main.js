@@ -83,7 +83,7 @@ const themeProperty = {
     'buttonClass': 'text-dark',
   },
   'Black': {
-    'name': 'Black',
+    'name': 'Dark',
     'actionbar': 'eee',
     'buttonClass': 'text-light',
   },
