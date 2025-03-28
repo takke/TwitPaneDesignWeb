@@ -1,5 +1,5 @@
 # Deny access to dot files
-<FilesMatch "^\.">
+<FilesMatch "^\.|^README.md">
     Order allow,deny
     Deny from all
 </FilesMatch>
