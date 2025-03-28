@@ -77,17 +77,17 @@ const timelineData = [
 
 // テーマごとのアクションバーテキストカラー
 const themeActionbarTextColors = {
-  'Light': '000000',
-  'Black': 'ffffff',
-  'ResearchGreen': '000000',
-  'Sakura': '000000',
-  'CoralPink': '000000',
-  'CafeLatte': '000000',
-  'Mammoth': '000000',
-  'Tai': '000000',
-  'Paris': 'ffffff',
-  'Green': 'ffffff',
-  'Char': 'ffffff',
+  'Light': '333',
+  'Black': 'eee',
+  'ResearchGreen': '333',
+  'Sakura': '333',
+  'CoralPink': '333',
+  'CafeLatte': '333',
+  'Mammoth': '333',
+  'Tai': '333',
+  'Paris': 'eee',
+  'Green': 'eee',
+  'Char': 'eee',
 };
 
 // テーマのデフォルトURL
