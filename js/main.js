@@ -34,7 +34,7 @@ const timelineData = [
   },
   {
     id: 4,
-    avatar: "https://fakeimg.pl/48x48/ddd/fff?text=T",
+    avatar: "https://pbs.twimg.com/profile_images/1353904257951387650/xhD0NnOm_400x400.jpg",
     userName: "たっけ",
     userId: "takke@fedibird.com",
     timestamp: "2025/03/28 15:02",
