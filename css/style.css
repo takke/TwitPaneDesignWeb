@@ -1,7 +1,10 @@
 :root {
   --bg-color: #ffffff;
+  --bg-color-grad-color: #ffffff;
   --mentionbg-color: #f8f8f8;
+  --mentionbg-color-grad-color: #f8f8f8;
   --rtbg-color: #f8f8f8;
+  --rtbg-color-grad-color: #f8f8f8;
   --title-color: #000000;
   --date-color: #666666;
   --body-color: #000000;
@@ -302,6 +305,9 @@
   border-bottom: 1px solid var(--border-color);
   background-color: var(--bg-color);
   position: relative;
+  background-image: linear-gradient(to bottom,
+      var(--bg-color),
+      color-mix(in srgb, var(--bg-color) 50%, var(--bg-color-grad-color) 50%));
 }
 
 /* カラーラベル */
@@ -321,6 +327,9 @@
 
 .timeline-post.mention {
   background-color: var(--mentionbg-color);
+  background-image: linear-gradient(to bottom,
+      var(--mentionbg-color),
+      color-mix(in srgb, var(--mentionbg-color), var(--mentionbg-color-grad-color)));
 }
 
 .user-info {
@@ -564,6 +573,9 @@
 
 .timeline-post.rt {
   background-color: var(--rtbg-color);
+  background-image: linear-gradient(to bottom,
+      var(--rtbg-color),
+      color-mix(in srgb, var(--rtbg-color), var(--rtbg-color-grad-color)));
 }
 
 .timeline-post:last-child {

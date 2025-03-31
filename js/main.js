@@ -238,9 +238,40 @@ function applySelectedColors() {
   // グラデーション値を適用
   if (gradSelect) {
     const gradValue = gradSelect.value;
+    //    console.log("gradValue", gradValue);
     document.documentElement.style.setProperty('--grad-value', gradValue);
+
+    // グラデーションの色を計算して指定する
+    const gradValueInt = parseInt(gradValue, 16);
+    const bgColor = getComputedStyle(document.documentElement).getPropertyValue("--bg-color").trim();
+    const bgColorGradColor = lightenColor(bgColor, gradValueInt);
+    document.documentElement.style.setProperty('--bg-color-grad-color', bgColorGradColor);
+
+    const mentionbgColor = getComputedStyle(document.documentElement).getPropertyValue("--mentionbg-color").trim();
+    const mentionbgColorGradColor = lightenColor(mentionbgColor, gradValueInt);
+    document.documentElement.style.setProperty('--mentionbg-color-grad-color', mentionbgColorGradColor);
+
+    const rtbgColor = getComputedStyle(document.documentElement).getPropertyValue("--rtbg-color").trim();
+    const rtbgColorGradColor = lightenColor(rtbgColor, gradValueInt);
+    document.documentElement.style.setProperty('--rtbg-color-grad-color', rtbgColorGradColor);
   }
 }
+
+// グラデーションの色を計算して指定する関数
+function lightenColor(color, gradValue) {
+  //  console.log(`color: [${color}]`);
+  // #fc80aa のような16進数の色をRGBに変換
+  const rgb = color.match(/#([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})/);
+  //  console.log(`rgb: [${rgb}]`);
+  if (!rgb) return color;
+  const r = parseInt(rgb[1], 16);
+  const g = parseInt(rgb[2], 16);
+  const b = parseInt(rgb[3], 16);
+  const lightColor = `rgb(${r + gradValue}, ${g + gradValue}, ${b + gradValue})`;
+  console.log(`color: [${color}] gradValue: [${gradValue}] lightColor: [${lightColor}]`);
+  return lightColor;
+}
+
 
 // URLからカラーパラメータを取得して適用する関数
 function applyColorsFromUrl() {
