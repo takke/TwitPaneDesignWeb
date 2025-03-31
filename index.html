@@ -108,6 +108,23 @@
                 </div>
 
                 <div class="mb-3">
+                  <label class="form-label">背景のグラデーション</label>
+                  <select class="form-select" id="gradSelect" data-color-id="grad">
+                    <option value="50">Light5 (+50)</option>
+                    <option value="40">Light4 (+40)</option>
+                    <option value="30">Light3 (+30)</option>
+                    <option value="20">Light2 (+20)</option>
+                    <option value="10">Light1 (+10)</option>
+                    <option value="0" selected>なし (0)</option>
+                    <option value="-10">Deep1 (-10)</option>
+                    <option value="-20">Deep2 (-20)</option>
+                    <option value="-30">Deep3 (-30)</option>
+                    <option value="-40">Deep4 (-40)</option>
+                    <option value="-50">Deep5 (-50)</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
                   <label class="form-label">ステータスバー</label>
                   <input type="color" class="form-control form-control-color w-100" id="statusBarColor" value="#333333"
                     data-color-id="statusbar" />

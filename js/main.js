@@ -164,7 +164,8 @@ const colorMap = {
   'more': 'moreColor',
   'statusbar': 'statusBarColor',
   'actionbar': 'actionBarColor',
-  'tab': 'tabColor'
+  'tab': 'tabColor',
+  'grad': 'gradSelect'
 };
 
 // HTMLを生成する関数
@@ -218,6 +219,7 @@ function generateTimelineHTML(posts) {
 // 配色を適用する関数
 function applySelectedColors() {
   const colorInputs = document.querySelectorAll('input[type="color"]');
+  const gradSelect = document.getElementById('gradSelect');
 
   colorInputs.forEach(input => {
     const colorId = input.dataset.colorId;
@@ -232,6 +234,12 @@ function applySelectedColors() {
     // カスタムプロパティを設定
     document.documentElement.style.setProperty(propertyName, value);
   });
+
+  // グラデーション値を適用
+  if (gradSelect) {
+    const gradValue = gradSelect.value;
+    document.documentElement.style.setProperty('--grad-value', gradValue);
+  }
 }
 
 // URLからカラーパラメータを取得して適用する関数
@@ -244,8 +252,18 @@ function applyColorsFromUrl() {
     document.getElementById('themeSelect').value = theme;
   }
 
+  // グラデーション値の処理
+  const gradValue = urlParams.get('grad');
+  if (gradValue) {
+    const gradSelect = document.getElementById('gradSelect');
+    if (gradSelect) {
+      gradSelect.value = gradValue;
+    }
+  }
+
   // 各カラーパラメータを処理
   Object.entries(colorMap).forEach(([paramName, inputId]) => {
+    if (paramName === 'grad') return; // gradは別処理
     const colorValue = urlParams.get(paramName);
     if (colorValue) {
       const input = document.getElementById(inputId);
@@ -265,6 +283,12 @@ function getColorParamsAsUrl() {
 
   // テーマを追加
   params.append('theme', document.getElementById('themeSelect').value);
+
+  // グラデーション値を追加
+  const gradSelect = document.getElementById('gradSelect');
+  if (gradSelect) {
+    params.append('grad', gradSelect.value);
+  }
 
   document.querySelectorAll('input[type="color"]').forEach(input => {
     const colorId = input.dataset.colorId;
@@ -623,6 +647,20 @@ document.addEventListener('DOMContentLoaded', function () {
     applyThemeFromUrl(theme);
   }
   applyColorsFromUrl();
+
+  // グラデーション選択の変更イベントを追加
+  const gradSelect = document.getElementById('gradSelect');
+  if (gradSelect) {
+    gradSelect.addEventListener('change', () => {
+      applySelectedColors();
+      // URLを更新（ただしページ遷移はしない）
+      const newUrl = getColorParamsAsUrl();
+      window.history.replaceState({}, '', newUrl);
+
+      // シェアテキストを更新
+      updateShareText();
+    });
+  }
 });
 
 // 共有関連
