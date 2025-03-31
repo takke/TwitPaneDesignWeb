@@ -165,7 +165,9 @@ const colorMap = {
   'statusbar': 'statusBarColor',
   'actionbar': 'actionBarColor',
   'tab': 'tabColor',
-  'grad': 'gradSelect'
+  'grad': 'gradSelect',
+  'mymsgbg': 'myMsgBgColor',
+  'otmsgbg': 'otMsgBgColor'
 };
 
 // HTMLを生成する関数

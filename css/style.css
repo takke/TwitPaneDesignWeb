@@ -21,6 +21,8 @@
   --text-color: #000000;
   --accent-color: #1d9bf0;
   --border-color: #dddddd;
+  --mymsgbg-color: #f0f0ff;
+  --otmsgbg-color: #f8f0f0;
 
   /* Material Design カラーパレット */
   --md-sys-color-red-50: #FFEBEE;
@@ -155,7 +157,7 @@
   --md-sys-color-teal-900: #004D40;
   --md-sys-color-teal-A100: #A7FFEB;
   --md-sys-color-teal-A200: #64FFDA;
-  --md-sys-color-teal-A400: #00E5FF;
+  --md-sys-color-teal-A400: #1DE9B6;
   --md-sys-color-teal-A700: #00BFA5;
 
   --md-sys-color-green-50: #E8F5E9;
