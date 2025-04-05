@@ -81,10 +81,16 @@
 
             <div class="mb-4">
               <label class="form-label">テーマ</label>
-              <select class="form-select" id="themeSelect">
-                <option value="">Light</option>
-                <!-- テーマはJavaScriptで動的に追加 -->
-              </select>
+              <div class="d-flex">
+                <select class="form-select" id="themeSelect" style="flex: 1;">
+                  <option value="">Light</option>
+                  <!-- テーマはJavaScriptで動的に追加 -->
+                </select>
+                <div class="ms-2" style="flex: 2;">
+                  <input type="text" class="form-control" id="themeName" placeholder="テーマ名" maxlength="20"
+                    pattern="^[a-zA-Z0-9_\-]+$">
+                </div>
+              </div>
             </div>
 
             <div class="row">
@@ -224,7 +230,7 @@
           </div>
           <div class="card-body">
 
-            <textarea id="shareText" class="mb-2" readonly>#TwitPane 配色デザイン
+            <textarea id="shareText" class="mb-2" readonly>#TwitPaneテーマ
 </textarea>
 
             <div class="share-buttons">
@@ -272,7 +278,7 @@
             </div>
 
             <div class="mt-4">
-              TwitPane/ZonePane で投稿を開き、「このデザインをインポートする」からこの配色をインポートできます。
+              TwitPane/ZonePane で投稿を開き、URLをタップするとこの配色テーマをインポートできます。
             </div>
 
           </div>
