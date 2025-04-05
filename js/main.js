@@ -331,6 +331,9 @@ function applyColorsFromUrl() {
   });
 
   applySelectedColors();
+
+  // シェアテキストを更新
+  updateShareText();
 }
 
 // 現在の色設定をURLパラメータとして取得
@@ -393,6 +396,9 @@ function applyThemeFromUrl(themeName) {
   });
 
   applySelectedColors();
+
+  // シェアテキストを更新
+  updateShareText();
 }
 
 // カラーパレットの設定
@@ -617,7 +623,8 @@ function rgbToHex(rgb) {
 let shareText = "";
 
 function updateShareText() {
-  shareText = `#TwitPaneテーマ\r\n${location.href}`;
+  const themeName = document.getElementById('themeName').value;
+  shareText = `${themeName}\r\n#TwitPaneテーマ\r\n${location.href}`;
   document.getElementById('shareText').value = shareText;
 }
 
@@ -628,9 +635,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // カラーピッカー初期化
   setupColorPicker();
-
-  // シェアテキストを初期化
-  updateShareText()
 
   // 各カラー入力に即時反映のイベントリスナーを設定
   document.querySelectorAll('input[type="color"]').forEach(input => {
@@ -669,6 +673,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // シェアテキストを更新
     updateShareText();
   });
+
+  // シェアテキストを初期化
+  updateShareText()
 
   //--------------------------------------------------
   // テーマの選択肢を追加
