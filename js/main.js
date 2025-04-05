@@ -79,56 +79,67 @@ const timelineData = [
 const themeProperty = {
   'Light': {
     'name': 'Light',
+    'nameShort': 'Light',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'Black': {
     'name': 'Dark',
+    'nameShort': 'Dark',
     'actionbar': 'eee',
     'buttonClass': 'text-light',
   },
   'ResearchGreen': {
     'name': 'ResearchGreen(L)',
+    'nameShort': 'ResearchGreen',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'Sakura': {
     'name': 'Sakura(L)',
+    'nameShort': 'Sakura',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'CoralPink': {
     'name': 'CoralPink(L)',
+    'nameShort': 'CoralPink',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'CafeLatte': {
     'name': 'CafeLatte(L)',
+    'nameShort': 'CafeLatte',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'Mammoth': {
     'name': 'Mammoth(L)',
+    'nameShort': 'Mammoth',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'Tai': {
     'name': 'Tai(L)',
+    'nameShort': 'Tai',
     'actionbar': '333',
     'buttonClass': 'text-dark',
   },
   'Paris': {
     'name': 'Paris(D)',
+    'nameShort': 'Paris',
     'actionbar': 'eee',
     'buttonClass': 'text-light',
   },
   'Green': {
     'name': 'Green(D)',
+    'nameShort': 'Green',
     'actionbar': 'eee',
     'buttonClass': 'text-light',
   },
   'Char': {
     'name': 'Char(D)',
+    'nameShort': 'Char',
     'actionbar': 'eee',
     'buttonClass': 'text-light',
   },
@@ -285,6 +296,18 @@ function applyColorsFromUrl() {
     document.getElementById('themeSelect').value = theme;
   }
 
+  // テーマ名の処理
+  const name = urlParams.get('name');
+  if (name) {
+    document.getElementById('themeName').value = name;
+  } else if (theme) {
+    // テーマ名がなく、テーマが指定されている場合は、テーマのnameShortを使用
+    const themeObj = themeProperty[theme];
+    if (themeObj && themeObj.nameShort) {
+      document.getElementById('themeName').value = themeObj.nameShort;
+    }
+  }
+
   // グラデーション値の処理
   const gradValue = urlParams.get('grad');
   if (gradValue) {
@@ -316,6 +339,12 @@ function getColorParamsAsUrl() {
 
   // テーマを追加
   params.append('theme', document.getElementById('themeSelect').value);
+
+  // テーマ名を追加
+  const themeName = document.getElementById('themeName').value;
+  if (themeName) {
+    params.append('name', themeName);
+  }
 
   // グラデーション値を追加
   const gradSelect = document.getElementById('gradSelect');
@@ -588,7 +617,7 @@ function rgbToHex(rgb) {
 let shareText = "";
 
 function updateShareText() {
-  shareText = `#TwitPane 配色デザイン\r\n${location.href}`;
+  shareText = `#TwitPaneテーマ\r\n${location.href}`;
   document.getElementById('shareText').value = shareText;
 }
 
@@ -614,6 +643,31 @@ document.addEventListener('DOMContentLoaded', function () {
       // シェアテキストを更新
       updateShareText()
     });
+  });
+
+  // テーマ名入力フィールドの検証と変更イベント
+  const themeNameInput = document.getElementById('themeName');
+  themeNameInput.addEventListener('input', function (e) {
+    // 入力値を検証
+    const value = e.target.value;
+    const pattern = /^[a-zA-Z0-9_\-]*$/;
+
+    if (value && !pattern.test(value)) {
+      // 不正な文字が含まれている場合は削除
+      e.target.value = value.replace(/[^a-zA-Z0-9_\-]/g, '');
+    }
+
+    if (e.target.value.length > 20) {
+      // 20文字を超える場合は切り捨て
+      e.target.value = e.target.value.substring(0, 20);
+    }
+
+    // URLを更新
+    const newUrl = getColorParamsAsUrl();
+    window.history.replaceState({}, '', newUrl);
+
+    // シェアテキストを更新
+    updateShareText();
   });
 
   //--------------------------------------------------
@@ -653,10 +707,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 確認ダイアログを表示
     if (confirm('テーマを変更すると現在の色設定が初期化されます。\nよろしいですか？')) {
+      // テーマ選択後に、対応するテーマ名も設定
+      if (themeProperty[value] && themeProperty[value].nameShort) {
+        const themeName = document.getElementById('themeName').value = themeProperty[value].nameShort;
+      }
+
       // テーマのデフォルトURLを取得して遷移
       const themeUrl = themeDefaultUrls[value];
       if (themeUrl) {
-        window.location.href = themeUrl;
+        // nameパラメータを追加
+        const url = new URL(themeUrl);
+        const params = new URLSearchParams(url.search);
+        const themeName = document.getElementById('themeName').value;
+        if (themeName) {
+          params.append('name', themeName);
+        }
+        window.location.href = `${url.origin}${url.pathname}?${params.toString()}`;
       }
     } else {
       // キャンセルした場合は前の値に戻す
@@ -673,6 +739,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // テーマセレクトの初期値を設定
   themeSelect.value = theme;
   themeSelect.dataset.prevValue = theme;
+
+  // URLからテーマ名を取得
+  const name = urlParams.get('name');
+
+  // テーマ名の初期設定
+  if (name) {
+    themeNameInput.value = name;
+  } else if (themeProperty[theme] && themeProperty[theme].nameShort) {
+    themeNameInput.value = themeProperty[theme].nameShort;
+  } else {
+    themeNameInput.value = theme;
+  }
 
   // テーマのデフォルトURLから色を適用
   console.log("themeDefaultUrls[theme]", themeDefaultUrls[theme]);
