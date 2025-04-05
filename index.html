@@ -76,19 +76,27 @@
           <div class="card-body">
 
             <div class="mb-3">
-              ※タイトルバーの文字色はテーマの種類(Light系/Dark系)により決まります。
+              ・基準テーマを選び、配色をカスタマイズして新しいテーマを作成できます。<br>
+              ・テーマ名はv32以降のTwitPane/ZonePane等でインポートできます。<br>
+              ・テーマ名は20文字までです。<br>
+              ・タイトルバーの文字色はテーマの種類(Light系/Dark系)により決まります。
             </div>
 
-            <div class="mb-4">
-              <label class="form-label">テーマ</label>
-              <div class="d-flex">
-                <select class="form-select" id="themeSelect" style="flex: 1;">
-                  <option value="">Light</option>
-                  <!-- テーマはJavaScriptで動的に追加 -->
-                </select>
-                <div class="ms-2" style="flex: 2;">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">テーマ名</label>
                   <input type="text" class="form-control" id="themeName" placeholder="テーマ名" maxlength="20"
                     pattern="^[a-zA-Z0-9_\-]+$">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">基準テーマ</label>
+                  <select class="form-select" id="themeSelect" style="flex: 1;">
+                    <option value="">Light</option>
+                    <!-- テーマはJavaScriptで動的に追加 -->
+                  </select>
                 </div>
               </div>
             </div>
